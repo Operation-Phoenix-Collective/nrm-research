@@ -1,0 +1,8 @@
+# The downloader (scripts/download_cibmtr.py) needs only the Python standard library.
+# These are for the analysis scripts:
+openpyxl>=3.0
+xlrd>=2.0
+python-docx>=0.8
+striprtf>=0.0.20
+pdfplumber>=0.9
+pandas>=1.3

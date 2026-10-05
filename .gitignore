@@ -1,0 +1,17 @@
+# CIBMTR data must not be redistributed (see CIBMTR Terms and Conditions)
+data/dictionaries/
+data/datasets/
+data/datasets_extracted/
+data/manifest.csv
+data/.tmp_*
+*.sas7bdat
+*.sas7bcat
+*.zip
+*.part
+
+# Python / OS
+__pycache__/
+*.pyc
+.venv/
+.DS_Store
+~$*
