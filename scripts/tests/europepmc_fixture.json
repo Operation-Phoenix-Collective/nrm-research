@@ -1,0 +1,148 @@
+{
+ "version": "6.9",
+ "hitCount": 3,
+ "request": {
+  "queryString": "DOI:\"10.1038/s41409-023-02147-5\" OR DOI:\"10.1200/JCO.2014.59.1339\" OR PMCID:PMC4778768",
+  "resultType": "core",
+  "cursorMark": "*",
+  "pageSize": 10,
+  "sort": "",
+  "synonym": false
+ },
+ "resultList": {
+  "result": [
+   {
+    "id": "38007531",
+    "source": "MED",
+    "pmid": "38007531",
+    "doi": "10.1038/s41409-023-02147-5",
+    "title": "Artificial intelligence methods to estimate overall mortality and non-relapse mortality following allogeneic HCT in the modern era: an EBMT-TCWP study.",
+    "authorString": "Mussetti A, Rius-Sansalvador B, Moreno V, Peczynski C, Polge E, Galimard JE, Kr\u00f6ger N, Blaise D, Peffault de Latour R, Kulagin A, Mousavi A, Stelljes M, Hamladji RM, Middeke JM, Salmenniemi U, Sengeloev H, Forcade E, Platzbecker U, Rem\u00e9nyi P, Angelucci E, Chevallier P, Yakoub-Agha I, Craddock C, Ciceri F, Schroeder T, Aljurf M, Ch K, Moiseev I, Penack O, Schoemans H, Mohty M, Glass B, Sureda A, Basak G, Peric Z.",
+    "journalInfo": {
+     "issue": "2",
+     "volume": "59",
+     "yearOfPublication": 2024,
+     "journal": {
+      "title": "Bone marrow transplantation",
+      "isoabbreviation": "Bone Marrow Transplant"
+     }
+    },
+    "pubYear": "2024",
+    "pageInfo": "232-238",
+    "abstractText": "Allogeneic haematopoietic cell transplantation (alloHCT) has curative potential counterbalanced by its toxicity. Prognostic scores fail to include current era patients and alternative donors. We examined adult patients from the EBMT registry who underwent alloHCT between 2010 and 2019 for oncohaematological disease. Our primary objective was to develop a new prognostic score for overall mortality (OM), with a secondary objective of predicting non-relapse mortality (NRM) using the OM score. AI techniques were employed. The model for OM was trained, optimized, and validated using 70%, 15%, and 15% of the data set, respectively. The top models, \"gradient boosting\" for OM (AUC\u2009=\u20090.64) and \"elasticnet\" for NRM (AUC\u2009=\u20090.62), were selected. The analysis included 33,927 patients. In the final prognostic model, patients with the lowest score had a 2-year OM and NRM of 18 and 13%, respectively, while those with the highest score had a 2-year OM and NRM of 82 and 93%, respectively. The results were consistent in the subset of the haploidentical cohort (n\u2009=\u20094386). Our score effectively stratifies the risk of OM and NRM in the current era but do not significantly improve mortality prediction. Future prognostic scores can benefit from identifying biological or dynamic markers post alloHCT.",
+    "fullTextUrlList": {
+     "fullTextUrl": [
+      {
+       "availability": "Subscription required",
+       "availabilityCode": "S",
+       "documentStyle": "doi",
+       "site": "DOI",
+       "url": "https://doi.org/10.1038/s41409-023-02147-5"
+      }
+     ]
+    },
+    "isOpenAccess": "N",
+    "inPMC": "N",
+    "firstPublicationDate": "2023-11-25"
+   },
+   {
+    "id": "26240227",
+    "source": "MED",
+    "pmid": "26240227",
+    "doi": "10.1200/jco.2014.59.1339",
+    "title": "Prediction of Allogeneic Hematopoietic Stem-Cell Transplantation Mortality 100 Days After Transplantation Using a Machine Learning Algorithm: A European Group for Blood and Marrow Transplantation Acute Leukemia Working Party Retrospective Data Mining Study.",
+    "authorString": "Shouval R, Labopin M, Bondi O, Mishan-Shamay H, Shimoni A, Ciceri F, Esteve J, Giebel S, Gorin NC, Schmid C, Polge E, Aljurf M, Kroger N, Craddock C, Bacigalupo A, Cornelissen JJ, Baron F, Unger R, Nagler A, Mohty M.",
+    "journalInfo": {
+     "issue": "28",
+     "volume": "33",
+     "yearOfPublication": 2015,
+     "journal": {
+      "title": "Journal of clinical oncology : official journal of the American Society of Clinical Oncology",
+      "isoabbreviation": "J Clin Oncol"
+     }
+    },
+    "pubYear": "2015",
+    "pageInfo": "3144-3151",
+    "abstractText": "<h4>Purpose</h4>Allogeneic hematopoietic stem-cell transplantation (HSCT) is potentially curative for acute leukemia (AL), but carries considerable risk. Machine learning algorithms, which are part of the data mining (DM) approach, may serve for transplantation-related mortality risk prediction.<h4>Patients and methods</h4>This work is a retrospective DM study on a cohort of 28,236 adult HSCT recipients from the AL registry of the European Group for Blood and Marrow Transplantation. The primary objective was prediction of overall mortality (OM) at 100 days after HSCT. Secondary objectives were estimation of nonrelapse mortality, leukemia-free survival, and overall survival at 2 years. Donor, recipient, and procedural characteristics were analyzed. The alternating decision tree machine learning algorithm was applied for model development on 70% of the data set and validated on the remaining data.<h4>Results</h4>OM prevalence at day 100 was 13.9% (n=3,936). Of the 20 variables considered, 10 were selected by the model for OM prediction, and several interactions were discovered. By using a logistic transformation function, the crude score was transformed into individual probabilities for 100-day OM (range, 3% to 68%). The model's discrimination for the primary objective performed better than the European Group for Blood and Marrow Transplantation score (area under the receiver operating characteristics curve, 0.701 v 0.646; P<.001). Calibration was excellent. Scores assigned were also predictive of secondary objectives.<h4>Conclusion</h4>The alternating decision tree model provides a robust tool for risk evaluation of patients with AL before HSCT, and is available online (http://bioinfo.lnx.biu.ac.il/\u223cbondi/web1.html). It is presented as a continuous probabilistic score for the prediction of day 100 OM, extending prediction to 2 years. The DM method has proved useful for clinical prediction in HSCT.",
+    "fullTextUrlList": {
+     "fullTextUrl": [
+      {
+       "availability": "Open access",
+       "availabilityCode": "OA",
+       "documentStyle": "html",
+       "site": "Unpaywall",
+       "url": "https://orbi.uliege.be/handle/2268/188040"
+      },
+      {
+       "availability": "Subscription required",
+       "availabilityCode": "S",
+       "documentStyle": "doi",
+       "site": "DOI",
+       "url": "https://doi.org/10.1200/JCO.2014.59.1339"
+      }
+     ]
+    },
+    "isOpenAccess": "N",
+    "inPMC": "N",
+    "firstPublicationDate": "2015-08-03"
+   },
+   {
+    "id": "26942424",
+    "source": "MED",
+    "pmid": "26942424",
+    "pmcid": "PMC4778768",
+    "doi": "10.1371/journal.pone.0150637",
+    "title": "Prediction of Hematopoietic Stem Cell Transplantation Related Mortality- Lessons Learned from the In-Silico Approach: A European Society for Blood and Marrow Transplantation Acute Leukemia Working Party Data Mining Study.",
+    "authorString": "Shouval R, Labopin M, Unger R, Giebel S, Ciceri F, Schmid C, Esteve J, Baron F, Gorin NC, Savani B, Shimoni A, Mohty M, Nagler A.",
+    "journalInfo": {
+     "issue": "3",
+     "volume": "11",
+     "yearOfPublication": 2016,
+     "journal": {
+      "title": "PloS one",
+      "isoabbreviation": "PLoS One"
+     }
+    },
+    "pubYear": "2016",
+    "pageInfo": "e0150637",
+    "abstractText": "Models for prediction of allogeneic hematopoietic stem transplantation (HSCT) related mortality partially account for transplant risk. Improving predictive accuracy requires understating of prediction limiting factors, such as the statistical methodology used, number and quality of features collected, or simply the population size. Using an in-silico approach (i.e., iterative computerized simulations), based on machine learning (ML) algorithms, we set out to analyze these factors. A cohort of 25,923 adult acute leukemia patients from the European Society for Blood and Marrow Transplantation (EBMT) registry was analyzed. Predictive objective was non-relapse mortality (NRM) 100 days following HSCT. Thousands of prediction models were developed under varying conditions: increasing sample size, specific subpopulations and an increasing number of variables, which were selected and ranked by separate feature selection algorithms. Depending on the algorithm, predictive performance plateaued on a population size of 6,611-8,814 patients, reaching a maximal area under the receiver operator characteristic curve (AUC) of 0.67. AUCs' of models developed on specific subpopulation ranged from 0.59 to 0.67 for patients in second complete remission and receiving reduced intensity conditioning, respectively. Only 3-5 variables were necessary to achieve near maximal AUCs. The top 3 ranking variables, shared by all algorithms were disease stage, donor type, and conditioning regimen. Our findings empirically demonstrate that with regards to NRM prediction, few variables \"carry the weight\" and that traditional HSCT data has been \"worn out\". \"Breaking through\" the predictive boundaries will likely require additional types of inputs.",
+    "fullTextUrlList": {
+     "fullTextUrl": [
+      {
+       "availability": "Open access",
+       "availabilityCode": "OA",
+       "documentStyle": "pdf",
+       "site": "Unpaywall",
+       "url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0150637&type=printable"
+      },
+      {
+       "availability": "Subscription required",
+       "availabilityCode": "S",
+       "documentStyle": "doi",
+       "site": "DOI",
+       "url": "https://doi.org/10.1371/journal.pone.0150637"
+      },
+      {
+       "availability": "Open access",
+       "availabilityCode": "OA",
+       "documentStyle": "html",
+       "site": "Europe_PMC",
+       "url": "https://europepmc.org/articles/PMC4778768"
+      },
+      {
+       "availability": "Open access",
+       "availabilityCode": "OA",
+       "documentStyle": "pdf",
+       "site": "Europe_PMC",
+       "url": "https://europepmc.org/articles/PMC4778768?pdf=render"
+      }
+     ]
+    },
+    "isOpenAccess": "Y",
+    "inPMC": "Y",
+    "license": "cc by",
+    "firstPublicationDate": "2016-03-04"
+   }
+  ]
+ }
+}

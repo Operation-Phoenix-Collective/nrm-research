@@ -17,7 +17,8 @@ DOI [10.1200/JCO.2014.59.1339](https://doi.org/10.1200/JCO.2014.59.1339) · PMID
 
 - **Data:** EBMT registry, Acute Leukemia Working Party; about 28,000 adults with acute leukemia.
 - **Method:** alternating decision tree (ADT) predicting Day +100 mortality from pre-transplant information. It outperformed the conventional EBMT risk score, but prediction remained far from perfect.
-- **Data access:** the journal site blocked automated reading, so we could not read this paper's own data statement. A later EBMT data-mining study of 25,923 acute leukemia patients ([PMC4778768](https://pmc.ncbi.nlm.nih.gov/articles/PMC4778768)), states that EBMT does not allow registry data to be made public, for ethical reasons. Requests are directed to the Working Party chair (Prof. Arnon Nagler).
+- **Full text:** subscription at the journal; a free author copy is listed by Europe PMC in the University of Liège repository ([ORBi](https://orbi.uliege.be/handle/2268/188040)).
+- **Data access:** the journal site blocked automated reading, so we could not read this paper's own data statement. The same group's follow-up EBMT data-mining study of 25,923 acute leukemia patients (Shouval R, et al. *PLoS One* 2016;11(3):e0150637; [PMC4778768](https://pmc.ncbi.nlm.nih.gov/articles/PMC4778768), open access) states that EBMT does not allow registry data to be made public, for ethical reasons. Requests are directed to the Working Party chair (Prof. Arnon Nagler).
 
 ### Mussetti A, et al., *Bone Marrow Transplant* 2024;59:232–238
 
@@ -27,6 +28,7 @@ DOI [10.1038/s41409-023-02147-5](https://doi.org/10.1038/s41409-023-02147-5) · 
 - **Data:** EBMT registry, 2010–2019; 33,927 adults with an allogeneic HCT for a hematologic malignancy, including 4,386 haploidentical transplants.
 - **Method:** 70/15/15 split for training, optimization and validation. Gradient boosting was best for overall mortality (AUC 0.64) and elastic net for NRM (AUC 0.62). Logistic regression, support-vector machines and XGBoost were also tested. Analysis was done in R; no code or online tool was released.
 - **Data availability statement:** "The study data belong to the EBMT and may be requested through previous authorization."
+- **Full text:** subscription only; no open-access copy is listed in Europe PMC.
 
 ## Conclusion: the EBMT data is not openly available
 
@@ -37,3 +39,5 @@ Both papers use the EBMT registry, which is not public.
 - **In practice:** outside researchers usually get access by partnering with an EBMT centre or working party on a proposed study.
 
 The most practical openly available alternative is the CIBMTR public dataset collection, covered next.
+
+> **Get the papers:** `make papers` saves the citation, abstract and access links for each paper, plus the PDF where a legal open-access copy exists (see [`papers.csv`](papers.csv)).

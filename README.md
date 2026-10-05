@@ -43,7 +43,15 @@ The full write-up is in [`research/`](research/README.md).
 |---|---|
 | [Scripts guide](scripts/README.md) | All scripts, the analysis pipeline and tests |
 | [Download utility](scripts/README.md#download_cibmtrpy-the-download-utility) | `download_cibmtr.py`: fetch any or all CIBMTR datasets and dictionaries into a folder you choose |
+| [Paper downloader](scripts/README.md#download_paperspy-papers-and-reference-documents) | `download_papers.py`: fetch the cited papers (open-access PDFs, abstracts) and reference documents |
 | [Analysis pipeline](scripts/README.md#analysis-pipeline) | Rebuild every output in `data/` from the dictionaries |
+
+### Contributing
+
+| | |
+|---|---|
+| [CONTRIBUTING.md](CONTRIBUTING.md) | Prerequisites, installation (`make install`), development workflow, data-use rules |
+| [Makefile](Makefile) | Shortcuts: `make help` lists the install, download, analysis and test targets |
 
 ### Data
 
@@ -57,28 +65,29 @@ The full write-up is in [`research/`](research/README.md).
 
 ```bash
 git clone <this repo> && cd <repo>
+make install       # check and install prerequisites (Python 3.8+, packages into .venv)
+make help          # list all targets
 
-# Download every CIBMTR public dataset and dictionary into data/ (git-ignored)
-python3 scripts/download_cibmtr.py --out data
-
-# Or only the 31 tier A datasets, unzipped
-python3 scripts/download_cibmtr.py --out data --ids-from data/nrm_candidate_ranking.csv --tier A --extract
-
-# Rebuild the analysis
-pip3 install -r requirements.txt
-python3 scripts/parse_dictionaries.py && python3 scripts/dataset_sizes.py data \
-  && python3 scripts/analyze_nrm.py && python3 scripts/build_workbook.py
+make research      # cited papers (open-access PDFs, abstracts) + all data dictionaries
+make candidates    # datasets for the 31 tier A candidates (TIER="A B" for more)
+make datasets      # or all 160 datasets (~120 MB zipped)
+make analysis      # rebuild everything in data/ from the downloads
+make test          # offline tests
 ```
+
+Every target is a one-line call to a script in [`scripts/`](scripts/README.md), so you can run the scripts without `make`. Prerequisites, installation and contribution guidelines are in [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Repository layout
 
 ```
 .
 ├── README.md                 this file
-├── research/                 the write-ups (Markdown)
+├── CONTRIBUTING.md           prerequisites, install, workflow, data-use rules
+├── Makefile                  thin wrapper around scripts/ (make help)
+├── research/                 the write-ups (Markdown) and papers.csv
 ├── scripts/                  downloader, analysis pipeline, tests
 │   └── tests/
-├── data/                     derived outputs (CSV, XLSX); downloads land here, git-ignored
+├── data/                     derived outputs (CSV, XLSX); downloads land here (git-ignored)
 ├── requirements.txt          analysis dependencies (the downloader needs none)
 └── .gitignore                keeps CIBMTR data files out of git
 ```
@@ -91,7 +100,7 @@ CIBMTR data is subject to the [CIBMTR Terms and Conditions](https://cibmtr.org/F
 
 - Shouval R, et al. *J Clin Oncol.* 2015;33:3144–3151. [doi:10.1200/JCO.2014.59.1339](https://doi.org/10.1200/JCO.2014.59.1339)
 - Mussetti A, et al. *Bone Marrow Transplant.* 2024;59:232–238. [doi:10.1038/s41409-023-02147-5](https://doi.org/10.1038/s41409-023-02147-5)
-- Follow-up EBMT data-mining study of 25,923 acute leukemia patients (data-access statement). [PMC4778768](https://pmc.ncbi.nlm.nih.gov/articles/PMC4778768)
+- Shouval R, et al. *PLoS One.* 2016;11(3):e0150637 (EBMT data-access statement). [PMC4778768](https://pmc.ncbi.nlm.nih.gov/articles/PMC4778768)
 - EBMT Data Sharing: <https://www.ebmt.org/registry/ebmt-data-sharing>
 - CIBMTR Publicly Available Datasets: <https://cibmtr.org/CIBMTR/Resources/Publicly-Available-Datasets>
 

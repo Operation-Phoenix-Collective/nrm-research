@@ -1,0 +1,7 @@
+key,type,identifier,url,description
+shouval-2015-jco,article,DOI:10.1200/JCO.2014.59.1339,,Shouval et al. 2015 - Day +100 mortality ML model (EBMT ALWP); starting paper
+mussetti-2024-bmt,article,DOI:10.1038/s41409-023-02147-5,,Mussetti et al. 2024 - OM/NRM AI models (EBMT TCWP); starting paper
+shouval-2016-plosone,article,PMCID:PMC4778768,,Shouval et al. 2016 - EBMT data-mining follow-up; source of the EBMT data-access statement
+cibmtr-terms,document,,https://cibmtr.org/Files/Publicly-Available-Datasets/TermsAndConditions.pdf,CIBMTR Terms and Conditions for the publicly available datasets
+cibmtr-datasets-page,document,,https://cibmtr.org/CIBMTR/Resources/Publicly-Available-Datasets,CIBMTR Publicly Available Datasets page (snapshot)
+ebmt-data-sharing,document,,https://www.ebmt.org/registry/ebmt-data-sharing,EBMT registry data-sharing policy page (snapshot)
