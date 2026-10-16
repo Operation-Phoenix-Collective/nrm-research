@@ -91,9 +91,9 @@ Using `--out data` puts files where the analysis scripts expect them. Any other 
 1. **Catalog.** Loads the listing page (which sets the session cookie and anti-forgery token) and parses page 1. It then POSTs to the site's listing endpoint (`/DataAjax/GetDataListResults`) for the remaining pages and removes duplicates.
 2. **Selection.** Applies `--ids`, `--ids-from` and `--tier`, and warns about any requested ID that isn't on the site.
 3. **Download.** Each file is streamed to `*.part` and renamed when complete. Existing files are skipped, so **re-running is safe and resumes where it stopped.**
-4. **Broken links.** If the site returns an HTML page instead of a dictionary, the page is set aside in `_broken_site_links/` and the dictionary is extracted from the dataset zip instead (the zip is fetched temporarily if needed).
+4. **Broken links.** Dictionary hrefs are percent-encoded before the request (the site leaves spaces in some of them). If the site returns an HTML page or an error instead of a dictionary, the dictionary is extracted from the dataset zip instead (the zip is fetched temporarily if needed). An HTML body is set aside in `_broken_site_links/`.
 5. **Manifest.** Every attempt is logged with its status (`downloaded`, `skipped (exists)`, `broken link`, `extracted`, `failed: ...`), size and SHA-256.
-6. **Exit code.** `0` on success, `1` if any file failed.
+6. **Exit code.** `0` when every requested file is on disk, including dictionaries recovered from the dataset zip. `1` if a file failed and could not be recovered.
 
 If the site's list can't be read (for example after a redesign), the script falls back to an existing `catalog.csv` in the output folder, or you can pass `--catalog data/catalog.csv`.
 
