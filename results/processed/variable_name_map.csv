@@ -1,0 +1,259 @@
+study_id,original_name,common_name,status,dictionary_label,dictionary_levels,note
+P-5329,cytogene,cytogenetic_risk,mapped,Cytogenetics,0=Unknown; 1=Normal; 2=Favorable; 3=Intermediate; 4=Poor; 5=Other; 6=TBD (needs rev.); 8=Not tested; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5329,sex,sex,mapped,Gender,1=Male; 2=Female; 9=Not answered; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5329,age,age_years,mapped,Age at transplant,,
+P-5329,intxsurv,os_time_months,mapped,"Time from HCT to death/last contact, months",,
+P-5329,drcmvpr,cmv_donor_recipient,mapped,D-R CMV status,0=+/+; 1=+/-; 2=-/+; 3=-/-; 9=Cord blood; 9.1=CB - recipient +; 9.2=CB - recipient -; 9.9=CB - recipient CMV unknown; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5329,drsex,sex_match,mapped,D-R sex match,1=M-M; 2=M-F; 3=F-M; 4=F-F; 8=NA; 9=Cord blood; 9.1=CB - recipient M; 9.2=CB - recipient F; 9.9=CB - recipient sex unknown; 99=Missing,"P-5521 drsexno is not in its dictionary. Its counts match drsexregeno, so 1=M-M, 2=M-F, 3=F-M, 4=F-F. Value codes differ between studies. Harmonise the codes before pooling."
+P-5329,yeartxgp,transplant_year_group,mapped,Year of transplant,1=2001-2005; 2=2006-2010; 3=2011-2015,
+P-5329,strata,disease_subgroup,mapped,Main group,1=MPN-BP; 2=Post-MDS AML; 3=De-novo AML,Value codes differ between studies. Harmonise the codes before pooling.
+P-5329,prelkmpn,mpn_etiology,mapped,Etiology of MPN at original diagnosis,1=Polycythemia vera; 2=Essential thrombocythemia; 3=Primary myelofibrosis; 4=MPN-unclassifiable; 9=N/A,
+P-5329,agegp,age_group,mapped,Age at transplant category,3=18-29; 4=30-39; 5=40-49; 6=50-59; 7=60-69; 8=>= 70,Value codes differ between studies. Harmonise the codes before pooling.
+P-5329,karnofcat,karnofsky_score,mapped,Karnofsky score,1=90-100; 2=< 90; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5329,hctci2gp,hct_ci,mapped,HCT-CI,"0=0; 1=1-2; 2=3+; 98=N/A, before 2007; 99=Missing",P-5370 hctcigpc has no label in its dictionary. Value codes differ between studies. Harmonise the codes before pooling.
+P-5329,wbcdxgp,wbc_at_diagnosis_group,mapped,WBC at diagnosis,1=<= 30 x 109 /L; 2=30-100 x 109 /L; 3=> 100 x 109 /L; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5329,distatprgpa,disease_status_at_hct,mapped,Disease status at HCT,1=CR1/CR2; 2=Active LK; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5329,therapygp,induction_therapy,mapped,Induction therapy,1=7+3 +- other; 2=Cytarabine based; 3=Hypomethylating; 4=Other; 7=No therapy given,
+P-5329,intdxlk,interval_mpn_mds_to_aml_years,mapped,"Time between diagnosis of MPN/MDS and AML, years",,
+P-5329,intdxlkgp,interval_mpn_mds_to_aml_group,mapped,Time between diagnosis of MPN/MDS and AML,1=< 2 years; 2=2-5 years; 3=> 5 years; 7=N/A; 99=Missing,
+P-5329,intdxtx,interval_dx_to_hct_months,mapped,"Time from diagnosis of AML to transplant, months",,P-5646 intxdx has negative values (minimum -29). Check before use.
+P-5329,intdxtxgp,interval_dx_to_hct_group,mapped,Time from diagnosis of AML to HCT,1=< 6 months; 2=6-12 months; 3=>= 12 months; 9=NA; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5329,graftypecat,graft_type,mapped,Graft source,1=Bone marrow; 2=Peripheral blood; 3=Cord blood; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5329,donorgpa,donor_type,mapped,Donor type,1=HLA-identical sibling; 2=Other related; 3=Well-matched URD; 4=Partially-matched/mismatched URD; 9=Cord blood; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5329,condintws,conditioning_intensity,mapped,Conditioning regimen,1=MAC - TBI-based; 2=MAC - Chemo-based; 3=RIC/NST; 99=Not tested/missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5329,gvhd2gp,gvhd_prophylaxis,mapped,GVHD prophylaxis,1=CNI + MMF +- others; 2=CNI + MTX +- others; 3=CNI +- others; 4=Post-CY; 5=Other; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5329,invivotdplt,serotherapy,mapped,In-vivo T-cell depletion,0=No; 1=Yes; 8=Unknown; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5329,plngf7d,planned_gcsf_7d,mapped,Planned G-CSF/GM-CSF within 7 days post-HCT,0=No; 1=Yes; 8=Unknown; 99=Missing,
+P-5329,dead,os_event,mapped,Overall survival,0=No; 1=Yes,Value codes differ between studies. Harmonise the codes before pooling.
+P-5329,anc,neutrophil_recovery_event,mapped,Neutrophil recovery,0=No; 1=Yes,Value codes differ between studies. Harmonise the codes before pooling.
+P-5329,rel,relapse_event,mapped,Relapse,0=No; 1=Yes,Value codes differ between studies. Harmonise the codes before pooling.
+P-5329,trm,nrm_event,mapped,Treatment related mortality,0=No; 1=Yes,Value codes differ between studies. Harmonise the codes before pooling.
+P-5329,dfs,dfs_event,mapped,Disease free survival,0=No; 1=Yes,P-5521 lfs is leukemia free survival. Value codes differ between studies. Harmonise the codes before pooling.
+P-5329,intxrel,relapse_or_death_time_months,mapped,"Time from HCT to relapse/death without relapse/last contact, months",,"Dictionaries of P-5370 and P-5435 say time to relapse. For NRM events the value equals os_time_months in 99.9 to 100 percent of patients, so it is the time to the first of relapse, death or last contact."
+P-5329,dwoanc,death_wo_neutrophil_recovery,mapped,Death without neutrophil recovery,0=No; 1=Yes,P-5702 dwoancrel also counts relapse. Value codes differ between studies. Harmonise the codes before pooling.
+P-5329,platelet,platelet_recovery_event,mapped,Platelet recovery,0=No; 1=Yes,Value codes differ between studies. Harmonise the codes before pooling.
+P-5329,dwoplatelet,death_wo_platelet_recovery,mapped,Death without platelet recovery,0=No; 1=Yes,Value codes differ between studies. Harmonise the codes before pooling.
+P-5329,intxanc,neutrophil_recovery_time_months,mapped,"Time from HCT to neutrophil recovery/death without neutrophil recovery/last contact, months",,
+P-5329,intxplatelet,platelet_recovery_time_months,mapped,"Time from HCT to platelet recovery/death without platelet recovery/last contact, months",,
+P-5329,agvhd24,agvhd_grade2_4_event,mapped,Grade 2-4 acute GVHD,0=No; 1=Yes,Value codes differ between studies. Harmonise the codes before pooling.
+P-5329,agvhd34,agvhd_grade3_4_event,mapped,Grade 3-4 acute GVHD,0=No; 1=Yes,Value codes differ between studies. Harmonise the codes before pooling.
+P-5329,cgvhd,cgvhd_event,mapped,Chronic GVHD,0=No; 1=Yes,Value codes differ between studies. Harmonise the codes before pooling.
+P-5329,dwoagvhd24,death_wo_agvhd_grade2_4,mapped,Death without 2-4 acute GVHD,0=No; 1=Yes,Value codes differ between studies. Harmonise the codes before pooling.
+P-5329,dwoagvhd34,death_wo_agvhd_grade3_4,mapped,Death without 3-4 acute GVHD,0=No; 1=Yes,Value codes differ between studies. Harmonise the codes before pooling.
+P-5329,dwocgvhd,death_wo_cgvhd,mapped,Death without chronic GVHD,0=No; 1=Yes,Value codes differ between studies. Harmonise the codes before pooling.
+P-5329,intxagvhd24,agvhd_grade2_4_time_months,mapped,"Time from HCT to acute GVHD onset/death without acute GVHD/last contact, months",,
+P-5329,intxagvhd34,agvhd_grade3_4_time_months,mapped,"Time from HCT to chronic GVHD onset/death without chronic GVHD/last contact, months",,
+P-5329,intxcgvhd,cgvhd_time_months,mapped,"Time between transplant and chronic GVHD, months",,
+P-5329,nogroup,nogroup,unmapped,,,
+P-5329,pseudocrid,patient_id,mapped,Pseudo patient ID,,
+P-5329,pseudocenterid,center_id,mapped,Pseudo center ID,,
+P-5370,yeartx,transplant_year,mapped,Year of transplant,,
+P-5370,sex,sex,mapped,Recipient Sex,1=Male; 2=Female,Value codes differ between studies. Harmonise the codes before pooling.
+P-5370,disease,disease,mapped,Disease,10=AML; 50=MDS,Value codes differ between studies. Harmonise the codes before pooling.
+P-5370,graftype,graft_type,mapped,Graft source,1=Bone marrow; 22=Peripheral blood; 23=Cord blood,Value codes differ between studies. Harmonise the codes before pooling.
+P-5370,drsex,sex_match,mapped,Donor/recipient sex match,1=M-M; 2=M-F; 3=F-M; 4=F-F; 99=Missing,"P-5521 drsexno is not in its dictionary. Its counts match drsexregeno, so 1=M-M, 2=M-F, 3=F-M, 4=F-F. Value codes differ between studies. Harmonise the codes before pooling."
+P-5370,distatus,disease_status_at_hct_mds,mapped,"Disease status prior to HCT, MDS only",1=Early; 2=Advanced; 3=Other; 4=NA(AML),
+P-5370,amstatprgp,disease_status_at_hct,mapped,"Disease status prior to HCT, for AML",1=Primary induction failure; 2=CR1; 3=CR2; 4=>=CR3; 5=Relapse; 6=No treatment; 7=NA(MDS),Value codes differ between studies. Harmonise the codes before pooling.
+P-5370,condgrp,conditioning_regimen,mapped,Conditioning regimen,1=TBI/Cy; 2=TBI/Cy/Flu; 3=TBI/Cy/Flu/TT; 4=TBI/Cy/TT; 5=TBI/Cy/VP; 6=TBI/VP; 7=TBI/Mel; 8=TBI/Flu; 9=TBI/other(s); 10=Bu/Cy/Mel; 11=Bu/Cy; 12=Bu/Mel; 13=Flu/Bu/TT; 14=Flu/Bu; 15=Flu/Mel/TT; 16=Flu/Mel; 17=FCR; 18=Cy/Flu; 19=Cy alone; 20=CBV; 21=BEAM; 22=BEAM like; 23=Mel alone; 24=Mel/other(s); 25=Treosulfan; 26=Carb/Etop; 27=Carb/other(s); 28=TLI; 90=Other(s); 98=None; 99=Missing,
+P-5370,dummycrid,patient_id,mapped,Dummy patient ID,,
+P-5370,kps,karnofsky_score,mapped,Karnofsky score,0=<90; 1=>=90; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5370,wbcdxgp,wbc_at_diagnosis_group,mapped,"White blood count at diagnosis,(x 10^9) AML only",1=<1-10; 2=11-100; 3=101+; 4=NA(MDS); 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5370,atggrp,serotherapy,mapped,(ATG/Alemtuzumab) for conditioning regimen or GVHD prophylaxis,1=Yes(ATG/Alemtuzumab); 2=No; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5370,gvhdgpf,gvhd_prophylaxis,mapped,GVHD prophylaxis,1=TCD/CD34; 2=Tac + MMF/MTX +/- others; 3=CSA + MMF/MTX +/- others; 4=Post-cy + others; 5=Others/Missing; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5370,drcmvprf,cmv_donor_recipient,mapped,Donor/Recipient CMV serostatus,1=Rec +; 2=Rec-/Donor -; 3=Other,Value codes differ between studies. Harmonise the codes before pooling.
+P-5370,donorgp_final,donor_type,mapped,Donor type,1=Matched related Donor; 2=Mismatched relative (>=7/8) / Other relatives (missing HLA); 3=Matched unrelated donor (8/8); 4=Unrelated (<=7/8) and matching unknown; 5=UCB donor,Value codes differ between studies. Harmonise the codes before pooling.
+P-5370,strataf,study_main_group,mapped,Study main effect,1=MAC and Low/Intermediate risk; 2=MAC and High/Very High risk; 3=RIC/NMA and Low/Intermediate risk; 4=RIC/NMA and High/Very High Risk,
+P-5370,agegpff,age_group,mapped,"Age at HCT, years",1=40-50; 2=51-60; 3=61+,Value codes differ between studies. Harmonise the codes before pooling.
+P-5370,rel,relapse_event,mapped,Relapse,0=Censor; 1=Event,Value codes differ between studies. Harmonise the codes before pooling.
+P-5370,trm,nrm_event,mapped,Treatment related mortality,0=Censor; 1=Event,Value codes differ between studies. Harmonise the codes before pooling.
+P-5370,intxrel,relapse_or_death_time_months,mapped,Time from HCT to relapse,,"Dictionaries of P-5370 and P-5435 say time to relapse. For NRM events the value equals os_time_months in 99.9 to 100 percent of patients, so it is the time to the first of relapse, death or last contact."
+P-5370,dfs,dfs_event,mapped,Disease free survival,0=Censor; 1=Event,P-5521 lfs is leukemia free survival. Value codes differ between studies. Harmonise the codes before pooling.
+P-5370,dummyccn,center_id,mapped,Dummy center ID,,
+P-5370,hctcigpc,hct_ci,mapped,No label,5=5+; 99=Missing,P-5370 hctcigpc has no label in its dictionary. Value codes differ between studies. Harmonise the codes before pooling.
+P-5370,intxsurv,os_time_months,mapped,Time from HCT to death / last follow-up,,
+P-5370,dead,os_event,mapped,Overall survival,0=Censor; 1=Event,Value codes differ between studies. Harmonise the codes before pooling.
+P-5435,yeartx,transplant_year,mapped,Year of transplant,,
+P-5435,sex,sex,mapped,Sex,1=Male; 2=Female,Value codes differ between studies. Harmonise the codes before pooling.
+P-5435,rcmvpr,cmv_recipient,mapped,Recipient CMV serostatus,0=Negative; 1=Positive; 99=Missing,Recipient only. The others give donor and recipient.
+P-5435,exmedx,extramedullary_disease_dx,mapped,Extramedullary disease at diagnosis,0=No; 1=Yes,
+P-5435,totind,induction_courses,mapped,Number of courses of induction for CR1 cases,,
+P-5435,age,age_years,mapped,Median (range),,
+P-5435,intxsurv,os_time_months,mapped,Time from HCT to death/last follow-up date,,
+P-5435,graftype,graft_type,mapped,Graft type,1=Bone marrow; 22=Peripheral blood; 23=Cord blood,Value codes differ between studies. Harmonise the codes before pooling.
+P-5435,donorgp2,donor_type,mapped,Donor type,1=HLA-identical sibling; 2=Haplo-identical relatives; 3=Other relatives; 4=Well-matched unrelated (8/8); 5=Partially-matched unrelated (7/8); 9=Cord blood,Value codes differ between studies. Harmonise the codes before pooling.
+P-5435,dummycrid,patient_id,mapped,Dummy patient ID,,
+P-5435,dead,os_event,mapped,Overall survival,0=Censor; 1=Yes,Value codes differ between studies. Harmonise the codes before pooling.
+P-5435,PI_class,cytogenetic_risk,mapped,Cytogenetics MLL,1=MLL; 3=Intermediate; 4=Adverse,Value codes differ between studies. Harmonise the codes before pooling.
+P-5435,PI_mll,mll_subtype,mapped,MLL subtype,"1=MLL t(9;11); 2=MLL t(10;11); 3=MLL t(6;11); 4=MLL t(11;19); 5=MLL Other; 11=MLL undefined; 99=N/A, not MLL",
+P-5435,agegp,age_group,mapped,Patient age at HCT,3=18-29; 4=30-39; 5=40-49; 6=50-59; 7=60-69,Value codes differ between studies. Harmonise the codes before pooling.
+P-5435,kps,karnofsky_score,mapped,Karnofsky score,0=<90; 1=>=90; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5435,aml,disease_subgroup,mapped,Type of AML,1=T-AML; 2=Antecedent MDS; 3=De-Novo disease,Value codes differ between studies. Harmonise the codes before pooling.
+P-5435,atgcampathgp,serotherapy,mapped,ATG/Campath,2=ATG alone; 3=CAMPATH alone; 4=No ATG or CAMPATH; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5435,gvhdgpf,gvhd_prophylaxis,mapped,GVHD prophylaxis,2=Post tx-cy; 3=Tac based; 4=CSA based; 5=Other; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5435,wbcdxgp10,wbc_at_diagnosis_group,mapped,"White blood count at diagnosis, AML (x 10^9)",1=<= 10; 2=10 - 100; 3=> 100; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5435,sorror,hct_ci,mapped,HCT-CI,0=0; 1=1-2; 2=3+; 3=NA (data not collected prior to 2007),P-5370 hctcigpc has no label in its dictionary. Value codes differ between studies. Harmonise the codes before pooling.
+P-5435,condintf,conditioning_intensity,mapped,Conditioning intensity,1=MA-TBI; 2=MA-Chemo; 3=RIC/NMA; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5435,indxcr1,time_to_cr1_weeks,mapped,Time to achieve CR1 (weeks),,
+P-5435,incr1tx,interval_cr1_to_hct_months,mapped,Time from CR1 to HCT (months),,
+P-5435,dxcr1gp,time_to_cr1_group,mapped,Time to achieve CR1 (weeks),1=<=4 weeks; 2=4-8 weeks; 3=>8 weeks; 99=Missing,
+P-5435,cr1txgp,interval_cr1_to_hct_group,mapped,Time from CR1 to HCT (months),1=<3 months; 2=3-6 months; 3=>6 months; 99=Missing,
+P-5435,rel,relapse_event,mapped,Relapse,0=Censor; 1=Event; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5435,trm,nrm_event,mapped,Treatment related mortality,0=Censor; 1=Event; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5435,dfs,dfs_event,mapped,Disease free survival,0=Censor; 1=Event; 99=Missing,P-5521 lfs is leukemia free survival. Value codes differ between studies. Harmonise the codes before pooling.
+P-5435,intxrel,relapse_or_death_time_months,mapped,Time from HCT to relapse,,"Dictionaries of P-5370 and P-5435 say time to relapse. For NRM events the value equals os_time_months in 99.9 to 100 percent of patients, so it is the time to the first of relapse, death or last contact."
+P-5435,grfs,grfs_event,mapped,"GVHD-free, relapse-free survival",0=Censor; 1=Event; 99=Missing,
+P-5435,intxgrfs,grfs_time_months,mapped,"Time from transplant to GVHD-free, relapse-free survival, months",,
+P-5435,prth,prior_disease_therapy,mapped,Therapy for previous disease,0=Not therapy related AML; 1=Chemotherapy; 2=Chemotherapy + radiation; 3=Radiation alone; 4=Auto HCT; 5=Other,
+P-5435,l2disc,prior_disease,mapped,Prior disease,0=Not therapy related AML; 1=HD; 2=NHL; 3=Breast cancer; 4=Solid tumor; 9=Other; 99=Missing,
+P-5435,mrdpr,mrd_at_hct,mapped,MRD at time of HCT,0=Negative; 1=Positive; 99=Missing,
+P-5435,dummyccn,center_id,mapped,Dummy center ID,,
+P-5521,cytogene,cytogenetic_risk,mapped,Cytogenetic risk score,0=Unknown; 1=Normal; 2=Favorable; 3=Intermediate; 4=Poor; 5=Other; 6=TBD (needs rev.); 8=Not tested; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5521,age,age_years,mapped,Age at transplant,,
+P-5521,sex,sex,mapped,Gender,1=Male; 2=Female; 9=Not answered; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5521,yeartx,transplant_year,mapped,Year of HCT,,
+P-5521,intxsurv,os_time_months,mapped,,,
+P-5521,dnrage,donor_age_years,mapped,Donor Age,,P-5702 holds unrelated donors only.
+P-5521,tedflag,ted_flag,mapped,TED Cases identifier,1=TED; 2=CRF,
+P-5521,drcmvpr,cmv_donor_recipient,mapped,Donor/recipient CMV serostatus,0=+/+; 1=+/-; 2=-/+; 3=-/-; 9=CB-Recipient +; 9=CB-Recipient -; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5521,dead,os_event,mapped,Overall Survival,0=No; 1=Yes,Value codes differ between studies. Harmonise the codes before pooling.
+P-5521,rel,relapse_event,mapped,Relapse,0=No; 1=Yes; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5521,trm,nrm_event,mapped,Non-relapse mortality,0=No; 1=Yes; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5521,intxrel,relapse_or_death_time_months,mapped,,,"Dictionaries of P-5370 and P-5435 say time to relapse. For NRM events the value equals os_time_months in 99.9 to 100 percent of patients, so it is the time to the first of relapse, death or last contact."
+P-5521,agvhd,agvhd_grade2_4_event,mapped,Acute GVHD Grade 2-4 (TED Cases prior 2017),0=No; 1=Yes; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5521,agvhd34,agvhd_grade3_4_event,mapped,Acute GVHD Grade 3-4,0=No; 1=Yes; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5521,cgvhd,cgvhd_event,mapped,Chronic cGVHD,0=No; 1=Yes; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5521,dwoagvhd,death_wo_agvhd_grade2_4,mapped,Death wo aGVHD 2-4,0=No; 1=Yes; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5521,dwoagvhd34,death_wo_agvhd_grade3_4,mapped,Death wo aGVHD 3-4,0=No; 1=Yes; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5521,dwocgvhd,death_wo_cgvhd,mapped,Death wo GVHD,0=No; 1=Yes; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5521,intxagvhd34,agvhd_grade3_4_time_months,mapped,Interval to aGVHD 3-4; Interval was imputed in MVA analysis for TED cases prior 2017,,
+P-5521,intxagvhd,agvhd_grade2_4_time_months,mapped,Interval to aGVHD 2-4; Interval was imputed in MVA analysis for TED cases prior 2017,,
+P-5521,intxcgvhd,cgvhd_time_months,mapped,Interval to cGVHD,,
+P-5521,agegp2,age_group,mapped,Age at HCT,3=18-29; 4=30-39; 5=40-49; 6=50-59; 7=60+,Value codes differ between studies. Harmonise the codes before pooling.
+P-5521,kps,karnofsky_score,mapped,Karnofsky performance status score,0=<90; 1=>=90; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5521,subgrp,immunophenotype,mapped,Immunophenotype,1=T-cell; 2=B-cell; 3=Unspecified; 4=No ATG or CAMPATH,
+P-5521,graftypecat,graft_type,mapped,Graft source,Bone marrow; Peripheral blood,Value codes differ between studies. Harmonise the codes before pooling.
+P-5521,atgcampathgp,serotherapy,mapped,In vivo T-cell depletion,Anti-thymocyte globulin; Alemtuzumab; None; Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5521,ethgpn,race_ethnicity,mapped,Race,"41=White, non- Hispanic; 42=Hispanic white; 43=Black; 44=Asian; 50=Not specified/ Other",Value codes differ between studies. Harmonise the codes before pooling.
+P-5521,intdxtxgp,interval_dx_to_hct_group,mapped,Time from dx to HCT (For CR1 cases-Only),1=0-5 months; 2=6-11 months; 3=>= 12 months,Value codes differ between studies. Harmonise the codes before pooling.
+P-5521,hctcigp,hct_ci_4group,mapped,HCT-CI score,"0=0; 1=1; 2=2; 3=3+; 96=TBD, review needed for history of malignancies; 97=TBD, inconsistencies between parent and sub-questions; 98=NA, f2400 (pre-TED) not completed; 99=Missing",Value codes differ between studies. Harmonise the codes before pooling.
+P-5521,statusmrd,disease_status_at_hct,mapped,Remission status,2=CR1-MRD positive; 3=CR1- MRD negative; 4=CR2; 5=>= CR3; 7=CR1- MRD missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5521,strato,donor_type,mapped,Main effect groups: donor type,1=HLA- identical sibling; 2=Haploidentical; 3=8/8 MUD; 4=7/8 MUD; 5=Cord Blood,Value codes differ between studies. Harmonise the codes before pooling.
+P-5521,gvhdnewtwo,gvhd_prophylaxis,mapped,GVHD prophylaxis,CNI + MTX ± others; CNI + MMF ± others; CNI + others; CNI alone; PTCy + CNI ± MMF; Other prophylaxis; Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5521,philgptwo,ph_positive_status,mapped,Ph+/BCR-ABL1 status (For B-ALL patients ONLY),0=No; 1=Yes; 88=T-all/Unspecified subtype,
+P-5521,drsexno,sex_match,mapped,,,"P-5521 drsexno is not in its dictionary. Its counts match drsexregeno, so 1=M-M, 2=M-F, 3=F-M, 4=F-F. Value codes differ between studies. Harmonise the codes before pooling."
+P-5521,drsexregeno,sex_mismatch_female_to_male,mapped,Donor-Recipient sex match,1=F-M gender mismatch; 2=All other gender matching; 99=Missing,
+P-5521,condescrp,conditioning_intensity,mapped,Conditioning regimen regimen,1=MAC-TBI; 2=MAC-Chemotherapy based; 3=RIC/NMA; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5521,second_ana,sensitivity_analysis_flag,mapped,Sensitivity Analysis identifier,1=Yes; 99=No,
+P-5521,regiongpmo,region,mapped,Region,1=US,
+P-5521,lfs,dfs_event,mapped,Leukemia Free Survival,0=No; 1=Yes; 99=Missing,P-5521 lfs is leukemia free survival. Value codes differ between studies. Harmonise the codes before pooling.
+P-5521,dnragegp35,donor_age_group_35,mapped,Donor Age group for Haplo vs 8/8 MUD and 7/8 MUD,0=0-34; 1=>= 35; 99=Missing,
+P-5521,dummycrid,patient_id,mapped,,,
+P-5521,dummyccn,center_id,mapped,Dummy CCN,,
+P-5646,cytogene,cytogenetic_risk,mapped,Cytogenetic score,"0=Unknown; 1=Normal; 2=Favorable; 3=Intermediate; 4=Poor; 5=Other; 10=Not tested/missing; 11=MDS, N/A; 999=Cytogenetics for AML/ALL",Value codes differ between studies. Harmonise the codes before pooling.
+P-5646,disease,disease,mapped,,10=AML; 20=ALL; 50=MDS,Value codes differ between studies. Harmonise the codes before pooling.
+P-5646,yeartx,transplant_year,mapped,TX year,,
+P-5646,sex,sex,mapped,Gender,"1=Male; 2=Female; 3=NA, non-resident of USA; 8=Unknown; 9=Not Answer",Value codes differ between studies. Harmonise the codes before pooling.
+P-5646,age,age_years,mapped,Patient age,,
+P-5646,intxsurv,os_time_months,mapped,Time from HCT to death/last follow-up date,,
+P-5646,graftype,graft_type,mapped,Graft type in merge,1=Bone marrow; 22=Peripheral blood; 23=Umbilical cord blood,Value codes differ between studies. Harmonise the codes before pooling.
+P-5646,donorgp2,donor_type,mapped,Donor/recipient HLA match,"0.1=Cord blood-double; 0.2=Cord blood-single; 1=HLA-identical siblings; 2=Twin; 3=matched related; 4=Mismatched related; 4.1=Mismatched related, mismatch=1; 4.2=Mismatched related, mismatch>=2; 4.3=Mismatched related, mismatch missing; 5=8/8 unrelated; 6=7/8 unrelated; 7=Multi donor(other than cord blood); 8=<=6/8 unrelated; 9=Unrelated (HLA match information missing); 99=Missing; 999=Donor/recipient HLA match",Value codes differ between studies. Harmonise the codes before pooling.
+P-5646,dead,os_event,mapped,Overall survival,0=No; 1=Yes,Value codes differ between studies. Harmonise the codes before pooling.
+P-5646,agegp,age_group,mapped,Age at transplant,"1=<12; 2=12-17; 3=18-39; 4=40-64; 5=>=65; 99=Missing; 999=Age at transplant, years",Value codes differ between studies. Harmonise the codes before pooling.
+P-5646,kps,karnofsky_score,mapped,Karnofsky/Lansky performance pre-Preparative Regimen,1=<80; 2=80-89; 3=>=90; 999=Karnofsky performance pre-Preparative Regimen,Value codes differ between studies. Harmonise the codes before pooling.
+P-5646,ethgp,race_ethnicity,mapped,Race/Ethnicity,"1=Caucasian, non-Hispanic; 2=African-American, non-Hispanic; 3=Asian, non-Hispanic; 4=Pacific islander, non-Hispanic; 5=Native American, non-Hispanic; 41=Hispanic, Caucasian; 42=Hispanic, African-American; 43=Hispanic, Asian; 44=Hispanic, Parcific islander; 45=Hispanic, Native American; 48=Hispanic, more than one race; 49=Hispanic, race unknown; 90=Other; 99=Missing",Value codes differ between studies. Harmonise the codes before pooling.
+P-5646,sexmatch,sex_match,mapped,Donor/recipient gender match,1=Male-Male; 2=Male-Female; 3=Female-Male; 4=Female-Female; 5=?-Male; 6=?-Female; 99=Missing; 999=Donor/recipient gender match,"P-5521 drsexno is not in its dictionary. Its counts match drsexregeno, so 1=M-M, 2=M-F, 3=F-M, 4=F-F. Value codes differ between studies. Harmonise the codes before pooling."
+P-5646,cmvmatch,cmv_donor_recipient,mapped,Donor/Recipient CMV status,0=Cord Blood; 1=+/+; 2=+/-; 3=-/+; 4=-/-; 5=+/?; 6=-/?; 7=?/+; 8=?/-; 99=Missing; 999=Donor/Recipient CMV status,Value codes differ between studies. Harmonise the codes before pooling.
+P-5646,intxdx,interval_dx_to_hct_months,mapped,Time from diagnosis to transplant,,P-5646 intxdx has negative values (minimum -29). Check before use.
+P-5646,intxdxgp,interval_dx_to_hct_group,mapped,Time from diagnosis to transplant,1=<6 months’; 2=6 month-1Y’; 3=1Y-2Y; 4=>=2Y; 999=Time from diagnosis to transplant’,Value codes differ between studies. Harmonise the codes before pooling.
+P-5646,distage,disease_status_at_hct,mapped,Disease status at HCT,"1=AML/ALL, early; 2=AML/ALL, intermediate; 3=AML/ALL, advanced; 4=AML/ALL, unknown; 9=MDS, early; 10=MDS, advanced; 11=MDS, unknown",Value codes differ between studies. Harmonise the codes before pooling.
+P-5646,hctcigp2,hct_ci,mapped,HCT-CI,0=0; 1=1-2; 2=3-4; 3=5+; 99=Missing; 999=HCT-CI,P-5370 hctcigpc has no label in its dictionary. Value codes differ between studies. Harmonise the codes before pooling.
+P-5646,condint3,conditioning_intensity,mapped,Conditioning regimen intensity,1=Myeloablative with TBI; 2=Myeloablative chemotherapy only; 3=RIC/NMA,Value codes differ between studies. Harmonise the codes before pooling.
+P-5646,ipssrpr,ipssr_prior_hct,mapped,IPSS-R prior to HCT (MDS only),1=Very low; 2=Low; 3=Intermediate; 4=High; 5=Very high; 99=Missing; 100=AML/ALL N/A; 999=IPSSr prior to transplant (MDS only),
+P-5646,atgcampathgp,serotherapy,mapped,ATG/Campath,1=ATG + Alemtuzumab; 2=ATG alone; 3=Alemtuzumab alone; 4=No ATG or Alemtuzumab; 99=Missing; 999=ATG/Alemtuzumab,Value codes differ between studies. Harmonise the codes before pooling.
+P-5646,agvhd24,agvhd_grade2_4_event,mapped,Grade 2-4 acute GVHD,0=No; 1=Yes,Value codes differ between studies. Harmonise the codes before pooling.
+P-5646,cgvhd,cgvhd_event,mapped,Chronic GVHD,0=No; 1=Yes,Value codes differ between studies. Harmonise the codes before pooling.
+P-5646,intxagvhd24,agvhd_grade2_4_time_months,mapped,"Time between transplant and 2-4 acute GVHD, months",,
+P-5646,intxcgvhd,cgvhd_time_months,mapped,"Time between transplant and chronic GVHD, months",,
+P-5646,gvhdgp2,gvhd_prophylaxis,mapped,GVHD prophylaxis,"0=No GVHD prophylaxis (forms under review); 1=Ex vivo T-cell depletion; 2=CD34 selection; 3.1=Post-CY + other(s); 3.2=Post-CY alone; 4=TAC/CSA + MMF +- others; 5=TAC/CSA + MTX +- others; 6=TAC/CSA + others (except MTX, MMF); 7=TAC/CSA alone; 8=MMF +/- Other; 9=MTX +/- Other; 12=SIRO +/- others (Not TAC/CSA); 13=ATG/CAMPATH alone; 14=Steroids alone; 20=Other GVHD prophylaxis; 999=GVHD prophylaxis",Value codes differ between studies. Harmonise the codes before pooling.
+P-5646,rel,relapse_event,mapped,Relapse,0=No; 1=Yes,Value codes differ between studies. Harmonise the codes before pooling.
+P-5646,trm,nrm_event,mapped,Treatment related mortality,0=No; 1=Yes,Value codes differ between studies. Harmonise the codes before pooling.
+P-5646,anc500,neutrophil_recovery_event,mapped,Neutrophil engraftment,1=Yes; 2=No; 99=Missing; 999=Neutrophil engraftment,Value codes differ between studies. Harmonise the codes before pooling.
+P-5646,intx_anc,neutrophil_recovery_time_days,mapped,"Time from transplant to ANC>500, days",,"Unit is days (median 15 in P-5646, dictionary says days)."
+P-5646,plat,platelet_recovery_event,mapped,Platelet engraftment,1=Yes; 2=No; 99=Missing; 999=Platelet engraftment,Value codes differ between studies. Harmonise the codes before pooling.
+P-5646,intx_pla20,platelet_recovery_time_days,mapped,Time from transplant to platelet>=20K,,Unit inferred as days from the median of 19. The dictionary of P-5646 gives no unit.
+P-5646,agvh_cdi,agvhd_before_cdi,mapped,Acute GVHD grade II-IV occurring prior to CDI,"1=Yes; 2=No; 3=No GVHD2-4; 4=Has GVHD2-4, no DCI; 5=No GVHD2-4, no DCI; 99=Missing; 999=Acute GVHD grade II-IV occurring prior to CDI",
+P-5646,agvh_gi,agvhd_lower_gi_before_cdi,mapped,Lower GI acute GVHD stage 2 - 4 occurring prior to CDI,"1=Yes; 2=No; 3=No Lower GI GVHD2-4; 4=Has lower GI, no CDI; 5=No lower GI, no CDI; 99=Missing; 999=Lower GI acute GVHD grade II-IV occurring prior to CDI",
+P-5646,flowgp,flow_mrd_analysis,mapped,Flow cytometry for MRD Analysis,1=Yes; 2=No; 99=Missing; 999=Flow cytometry; 999=Systemic antibacterial prophylzxis given,
+P-5646,systebac,systemic_antibacterial,mapped,Systemic antibacterial antibiotics,1=Yes; 2=No; .=Missing,
+P-5646,hospdayi,hospital_days_first_100d,mapped,Number of days in the hospital in first 100 days post-transplant,,
+P-5646,dfs,dfs_event,mapped,Disease free survival,0=No; 1=Yes,P-5521 lfs is leukemia free survival. Value codes differ between studies. Harmonise the codes before pooling.
+P-5646,obesity,bmi_group,mapped,BMI,1=<18.5; 2=18.5 – 24.9; 3=25 – 29.9; 4=30 – 34.9; 5=>=35; 99=Missing,
+P-5646,lpamgp,melphalan_conditioning,mapped,Conditioning Regimen containing Melphalan,1=Yes; 0=No,
+P-5646,antib_fluo,antibacterial_prophylaxis_type,mapped,Type of Antibacterial prophylaxis,1=Fluoroquinolone; 2=Non-Fluroquinolone; 3=Missing; 4=NA [pre-2017],
+P-5646,cdi100,cdi_100d_event,mapped,Incidence of CDI within first 100 days,,
+P-5646,intx_cdi100,cdi_time_days,mapped,"Time from transplant to CDI, days",,
+P-5646,cdi_recur,cdi_recurrence_1y,mapped,recurrent CDI by 1 year,"1=Yes, recurrent CDI by 1 year; 2=Yes CDI by 1 year but no recurrent; 3=No CDI",
+P-5646,infec,infection_mortality_event,mapped,Infection-Related mortality (IRM),,
+P-5646,intx_infec,infection_mortality_time_months,mapped,"Time from tx to Infection-Related mortality, month",,
+P-5646,agvhd24_lg,agvhd_lower_gi_grade2_4_event,mapped,Lower GI stage 2 – 4 aGVHD,,
+P-5646,intxagvhd24_lg,agvhd_lower_gi_grade2_4_time_months,mapped,"Time between transplant and lower GI stage 2 – 4 aGVHD, months",,
+P-5646,intxagvhd24_d,agvhd_grade2_4_time_days,mapped,"Time from transplant to aGVHD, days",,
+P-5646,cgvhd_gi,cgvhd_gi_event,mapped,GI cGVHD,,
+P-5646,intxcgvhd_gi,cgvhd_gi_time_months,mapped,"Time between transplant and GI cGVHD, months",,
+P-5646,cmvcdigp,cmv_near_cdi,mapped,CMV DNAemia/GI disease ± 14 days of CDI,1=Yes; 0=No; .=Missing,
+P-5646,vrecdigp,vre_bsi_near_cdi,mapped,VRE BSI occurring ± 7 days of CDI,1=Yes; 0=No; .=Missing,
+P-5646,intxrel_d,relapse_time_days,mapped,"Time between transplant and relapse, days",,P-5646 only. Divide by 30.4375 for months.
+P-5646,mbicdigp,mbi_bsi_near_cdi,mapped,MBI-BSI occurring ± 7 days of CDI,1=Yes; 0=No; .=Missing,
+P-5646,dcrid,patient_id,mapped,Dummy CRID,,
+P-5646,dccn,center_id,mapped,Dummy CCN,,
+P-5702,yeartx,transplant_year,mapped,Year of transplant,Continuous,
+P-5702,sex,sex,mapped,Recipient sex,1=Male; 2=Female,Value codes differ between studies. Harmonise the codes before pooling.
+P-5702,age,age_years,mapped,Recipient age,Continuous,
+P-5702,intxsurv,os_time_months,mapped,"Time from HCT to last follow-up, months",Continuous,
+P-5702,graftype,graft_type,mapped,Graft type,1=Bone marrow; 2=Peripheral blood,Value codes differ between studies. Harmonise the codes before pooling.
+P-5702,dead,os_event,mapped,Dead,0=Censoring; 1=Event,Value codes differ between studies. Harmonise the codes before pooling.
+P-5702,anc,neutrophil_recovery_event,mapped,ANC recovery,0=Censoring; 1=Event; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5702,intxanc,neutrophil_recovery_time_months,mapped,"Time from HCT to neutrophil engraftment, months",Continuous,
+P-5702,plt,platelet_recovery_event,mapped,Platelet recovery,0=Censoring; 1=Event; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5702,intxplt,platelet_recovery_time_months,mapped,"Time from HCT to platelet recovery, months",Continuous,
+P-5702,dwoplt,death_wo_platelet_recovery,mapped,Dead without platelet recovery,0=Censoring; 1=Event; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5702,agvhd24,agvhd_grade2_4_event,mapped,AGVHD II-IV (computed maximum grade),0=Censoring; 1=Event; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5702,intxagvhd24,agvhd_grade2_4_time_months,mapped,"Time from HCT to diagnosis of aGVHD for cases with max grade II-IV, second transplant/DCI or follow-up, months",Continuous,
+P-5702,dwoagvhd24,death_wo_agvhd_grade2_4,mapped,Dead without grade II-IV aGVHD,0=Censoring; 1=Event; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5702,cgvhd,cgvhd_event,mapped,Chronic GVHD,0=Censoring; 1=Event; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5702,intxcgvhd,cgvhd_time_months,mapped,"Time from HCT to diagnosis of chronic GVHD, second transplant/DCI or follow-up, months",Continuous,
+P-5702,dwocgvhd,death_wo_cgvhd,mapped,Dead without chronic GVHD,0=Censoring; 1=Event; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5702,rel,relapse_event,mapped,Relapse,0=Censoring; 1=Event; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5702,intxrel,relapse_or_death_time_months,mapped,Time from HCT to relapse / death,Continuous,"Dictionaries of P-5370 and P-5435 say time to relapse. For NRM events the value equals os_time_months in 99.9 to 100 percent of patients, so it is the time to the first of relapse, death or last contact."
+P-5702,trm,nrm_event,mapped,Non-relapse mortality,0=Censoring; 1=Event; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5702,dfs,dfs_event,mapped,Disease-free survival,0=Censoring; 1=Event; 99=Missing,P-5521 lfs is leukemia free survival. Value codes differ between studies. Harmonise the codes before pooling.
+P-5702,donorgp,donor_type,mapped,Donor type,1=HLA-identical sibling; 2=Well-matched unrelated (8/8),Value codes differ between studies. Harmonise the codes before pooling.
+P-5702,drcmvpr,cmv_donor_recipient,mapped,Donor-recipient CMV serostatus,"0=+/+; 1=+/-; 2=-/+; 3=-/-; 99.1=Missing - donor; 99.2=Missing - recipient; 99.3=Missing - recipient not tested, inconclusive",Value codes differ between studies. Harmonise the codes before pooling.
+P-5702,drsex,sex_match,mapped,Donor-recipient sex,1=M-M; 2=M-F; 3=F-M; 4=F-F,"P-5521 drsexno is not in its dictionary. Its counts match drsexregeno, so 1=M-M, 2=M-F, 3=F-M, 4=F-F. Value codes differ between studies. Harmonise the codes before pooling."
+P-5702,drabomatch,abo_match,mapped,Donor-recipient ABO match,0=Matched; 1=Minor mismatch; 2=Major mismatch; 3=Bi-directional,
+P-5702,hctcigp,hct_ci_4group,mapped,HCT-CI group,0=0; 1=1; 2=2; 3=3+; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5702,agegp,age_group,mapped,Recipient age group,1=18-29; 2=30-39; 3=40-49; 4=50-59; 5=60-69; 6=70+,Value codes differ between studies. Harmonise the codes before pooling.
+P-5702,racegp,race_ethnicity,mapped,Recipient race,1=White; 2=Black or African American; 3=Asian; 4=Native Hawaiian or other Pacific Islander; 5=American Indian or Alaska Native; 6=More than one race; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5702,karnofcat,karnofsky_score,mapped,Karnofsky/Lansky performance score,1=90-100; 2=<90; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5702,condtbi,conditioning_intensity,mapped,Conditioning intensity and TBI use,1=MAC TBI; 2=MAC non-TBI; 3=RIC/NMA; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5702,alstatprgp,disease_status_at_hct,mapped,Disease status at time of HCT,1=PIF; 2=CR1; 3=CR2; 4=>=CR3; 5=Relapse; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5702,drrh,rh_match,mapped,Donor-recipient Rh factor,0=+/+; 1=+/-; 2=-/+; 3=-/-; 99=Missing,
+P-5702,dagegp,donor_age_group,mapped,Donor age group for unrelated donors only,"-9=NA, HLA-identical sibling; 1=18-29; 2=30-39; 3=40-49; 4=50-59; 5=60-69; 99=Missing",
+P-5702,dnrage_urd,donor_age_years,mapped,Donor age for unrelated donors only,Continuous,P-5702 holds unrelated donors only.
+P-5702,agvhd34,agvhd_grade3_4_event,mapped,AGVHD III-IV (computed maximum grade),0=Censoring; 1=Event; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5702,intxagvhd34,agvhd_grade3_4_time_months,mapped,"Time from HCT to diagnosis of aGVHD for cases with max grade III-IV, second transplant/DCI or follow-up, months",Continuous,
+P-5702,dwoagvhd34,death_wo_agvhd_grade3_4,mapped,Dead without grade III-IV aGVHD,0=Censoring; 1=Event; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5702,gvhdprgp2,gvhd_prophylaxis_alt,mapped,GVHD Prophylaxis,1=TAC +/- others; 2=CSA +/- others; 3=PTCy +/- others; 4=Other(s); 99=Missing,
+P-5702,atgcampathgp2,serotherapy,mapped,ATG/alemtuzumab,1=ATG or Campath; 2=No ATG or Campath; 99=Missing,Value codes differ between studies. Harmonise the codes before pooling.
+P-5702,dwoancrel,death_wo_neutrophil_recovery,mapped,Death without ANC/relapse w/in 28d prior to ANC recovery,0=Censoring; 1=Event; 99=Missing,P-5702 dwoancrel also counts relapse. Value codes differ between studies. Harmonise the codes before pooling.
+P-5702,pgf,primary_graft_failure_event,mapped,Primary graft failure (ANC recovery by day 28),0=Censoring; 1=Event; 99=Missing,
+P-5702,pseudoid,patient_id,mapped,Pseudo Recipient ID,,
+P-5702,pseudoccn,center_id,mapped,Pseudo Center,,
+P-5702,hctcigp2,hct_ci,mapped,HCT-CI group,0=0; 1=1-2; 2=3+; 99=Missing,P-5370 hctcigpc has no label in its dictionary. Value codes differ between studies. Harmonise the codes before pooling.
+P-5702,dis,disease,mapped,Primary disease,1=AML; 2=ALL,Value codes differ between studies. Harmonise the codes before pooling.
+P-5702,gvhdprgp,gvhd_prophylaxis,mapped,GVHD Prophylaxis,0=Post Cy; 1=TAC+MTX± others; 2=TAC+MMF± others; 3=TAC±others; 4=CSA+MMF±others; 5=CSA+MTX±others; 6=Others,Value codes differ between studies. Harmonise the codes before pooling.
+P-5702,rbcreduc13,rbc_depletion_form_v1_3,mapped,RBC depletion - for form 2006 version 1-3,"-9.2=NA, different form version; -9.1=NA, graft manipulation data not available; 0=No; 1=Yes",
+P-5702,buffycp13,buffy_coat_form_v1_3,mapped,Buffy coat preparation - for form 2006 version 1-3,"-9.3=NA, only complete if RBC depletion on form 2006 version 1-3 is yes; -9.2=NA, different form version; -9.1=NA, graft manipulation data not available; 0=No; 1=Yes",
+P-5702,rbcreduc4,rbc_depletion_form_v4,mapped,RBC depletion - for form 2006 version 4,"-9.2=NA, different form version; -9.1=NA, graft manipulation data not available; 0=No; 1=Yes",
+P-5702,buffycp4,buffy_coat_form_v4,mapped,Buffy coat preparation - for form 2006 version 4,"-9.2; -9.1=NA, graft manipulation data not available; 0=No; 1=Yes",
+P-5702,plasmarmv,plasma_volume_reduction,mapped,Volume reduction/plasma reduced,"-9.1=NA, graft manipulation data not available; 0=No; 1=Yes",
