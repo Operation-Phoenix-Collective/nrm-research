@@ -1,0 +1,59 @@
+# Sas7bdatExtractor reads the files. NormalizeToOntology stamps each value
+# onto a shared field id. Study-specific columns are still stored; their Field
+# node has stack = do_not_stack, so they are not pooled across studies.
+- implementation: cibmtr.steps:StudySasExtractor
+  arguments:
+    datasets_root: ../data/datasets_extracted
+
+- implementation: cibmtr.steps:NormalizeToOntology
+  arguments:
+    mapping_path: ../data/field_dataset_mapping.csv
+    ontology_path: ../data/field_ontology.csv
+    catalog_path: ../data/catalog.csv
+
+- implementation: nodestream.interpreting:Interpreter
+  arguments:
+    interpretations:
+      - type: source_node
+        node_type: Patient
+        key:
+          study_id: !jmespath study_id
+          patient_id: !jmespath patient_id
+        key_normalization:
+          do_lowercase_strings: false
+        properties:
+          id_source: !jmespath id_source
+          source_file: !jmespath source_file
+      - type: relationship
+        node_type: Study
+        relationship_type: ENROLLED_IN
+        node_key:
+          study_id: !jmespath study_id
+        node_properties:
+          title: !jmespath study_title
+          first_author: !jmespath first_author
+          start_year: !jmespath start_year
+        key_normalization:
+          do_lowercase_strings: false
+      - type: relationship
+        node_type: Center
+        relationship_type: TREATED_AT
+        node_key:
+          study_id: !jmespath study_id
+          center_id: !jmespath center_id
+        key_normalization:
+          do_lowercase_strings: false
+      - type: relationship
+        node_type: Field
+        relationship_type: HAS_VALUE
+        iterate_on: !jmespath values
+        node_key:
+          field_id: !jmespath field_id
+        relationship_key:
+          source_variable: !jmespath source_variable
+        relationship_properties:
+          value_num: !jmespath value_num
+          value_text: !jmespath value_text
+          unit: !jmespath unit
+        key_normalization:
+          do_lowercase_strings: false

@@ -1,0 +1,97 @@
+dependencies: []
+name: '20261017060557'
+operations:
+- arguments:
+    keys: !!set
+      field_id: null
+    name: Field
+    properties: !!set
+      canonical_type: null
+      concept: null
+      definition: null
+      domain: null
+      harmonization: null
+      last_ingested_at: null
+      role: null
+      stack: null
+      taxonomy: null
+  operation: CreateNodeType
+- arguments:
+    keys: !!set
+      center_id: null
+      study_id: null
+    name: Center
+    properties: !!set
+      last_ingested_at: null
+  operation: CreateNodeType
+- arguments:
+    keys: !!set
+      patient_id: null
+      study_id: null
+    name: Patient
+    properties: !!set
+      id_source: null
+      last_ingested_at: null
+      source_file: null
+  operation: CreateNodeType
+- arguments:
+    keys: !!set
+      study_id: null
+    name: Study
+    properties: !!set
+      first_author: null
+      last_ingested_at: null
+      start_year: null
+      title: null
+  operation: CreateNodeType
+- arguments:
+    field_name: last_ingested_at
+    node_type: Center
+  operation: AddAdditionalNodePropertyIndex
+- arguments:
+    field_name: last_ingested_at
+    node_type: Study
+  operation: AddAdditionalNodePropertyIndex
+- arguments:
+    field_name: last_ingested_at
+    node_type: Field
+  operation: AddAdditionalNodePropertyIndex
+- arguments:
+    field_name: last_ingested_at
+    node_type: Patient
+  operation: AddAdditionalNodePropertyIndex
+- arguments:
+    keys: !!set {}
+    name: ENROLLED_IN
+    properties: !!set
+      last_ingested_at: null
+  operation: CreateRelationshipType
+- arguments:
+    keys: !!set {}
+    name: TREATED_AT
+    properties: !!set
+      last_ingested_at: null
+  operation: CreateRelationshipType
+- arguments:
+    keys: !!set
+      source_variable: null
+    name: HAS_VALUE
+    properties: !!set
+      last_ingested_at: null
+      unit: null
+      value_num: null
+      value_text: null
+  operation: CreateRelationshipType
+- arguments:
+    field_name: last_ingested_at
+    relationship_type: TREATED_AT
+  operation: AddAdditionalRelationshipPropertyIndex
+- arguments:
+    field_name: last_ingested_at
+    relationship_type: ENROLLED_IN
+  operation: AddAdditionalRelationshipPropertyIndex
+- arguments:
+    field_name: last_ingested_at
+    relationship_type: HAS_VALUE
+  operation: AddAdditionalRelationshipPropertyIndex
+replaces: []

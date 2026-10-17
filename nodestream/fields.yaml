@@ -1,0 +1,23 @@
+# Field nodes are the ontology. Patient values point at these.
+- implementation: cibmtr.steps:CsvExtractor
+  arguments:
+    path: ../data/field_ontology.csv
+
+- implementation: nodestream.interpreting:Interpreter
+  arguments:
+    interpretations:
+      - type: source_node
+        node_type: Field
+        key:
+          field_id: !jmespath field_id
+        key_normalization:
+          do_lowercase_strings: false
+        properties:
+          taxonomy: !jmespath taxonomy
+          domain: !jmespath domain
+          concept: !jmespath concept
+          role: !jmespath role
+          definition: !jmespath definition
+          canonical_type: !jmespath canonical_type
+          stack: !jmespath stack
+          harmonization: !jmespath harmonization
