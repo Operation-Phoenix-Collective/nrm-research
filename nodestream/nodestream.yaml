@@ -14,5 +14,11 @@ targets:
     username: !env NEO4J_USERNAME
     password: !env NEO4J_PASSWORD
     database_name: neo4j
+    # One patient row becomes every column as a HAS_VALUE edge. Parallel
+    # chunks deadlock on the shared Field nodes, so commit serially in
+    # small flushes.
+    execute_chunks_in_parallel: false
+    chunk_size: 500
+    batch_size: 200
   dry-run:
     database: "null"

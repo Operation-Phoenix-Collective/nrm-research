@@ -4,6 +4,9 @@
 - implementation: cibmtr.steps:StudySasExtractor
   arguments:
     datasets_root: ../data/datasets_extracted
+    # One stable sample per SAS file. 500 rows keeps a study-level rate to
+    # about ±4 points and the whole graph near 1 GB. Omit max_rows to load all.
+    # max_rows: 500
 
 - implementation: cibmtr.steps:NormalizeToOntology
   arguments:

@@ -9,7 +9,7 @@ TARGET ?= neo4j
 PIPELINES ?= fields studies patients
 
 .DEFAULT_GOAL := help
-.PHONY: help setup install validate migrate ingest
+.PHONY: help setup install validate migrate pare-down ingest
 
 help:          ## Show this help
 	@grep -E '^[a-z-]+:.*##' $(MAKEFILE_LIST) | awk -F':.*## ' '{printf "  make %-13s %s\n", $$1, $$2}'
@@ -24,7 +24,10 @@ install: setup ## Install Nodestream, the SAS plugin, and this project into .ven
 
 validate:     ## Check .env values and Neo4j connectivity
 	@test -x $(PY) || { echo "Run make install first"; exit 1; }
-	@$(PY) validate_env.py
+	@$(PY) scripts/validate_env.py
+
+pare-down: validate ## Drop patients and centers so the next ingest is the 500-row sample
+	@set -a && . ./.env && set +a && $(PY) scripts/pare_down.py
 
 migrate: validate ## Write the schema migration if needed, then apply it to Neo4j
 	@set -a && . ./.env && set +a && \

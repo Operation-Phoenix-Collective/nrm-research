@@ -33,7 +33,7 @@ make ingest         # migrations, then fields, studies, and patients into Neo4j
 
 `make ingest` reads `.env` itself. `nodestream.yaml` requires `NEO4J_URI`, `NEO4J_USERNAME`, and `NEO4J_PASSWORD`. Those names and sample values are in `.env.example`.
 
-`make ingest TARGET=dry-run` parses and discards the graph, which checks the project without Neo4j. To try one study, add `study_ids: [P-5051]` under `StudySasExtractor` in `patients.yaml`.
+`patients.yaml` keeps 500 rows from each SAS file (`max_rows`). That is a sample, not the published cohort: 43 studies are smaller than 500 and are loaded whole, and the other 117 are a stable random 500. Remove `max_rows` to load every row. `make pare-down` deletes patients and centers already in Neo4j so the next `make ingest` is that sample. Field and Study nodes stay. From the repo root the same target is `make pare-down`. `make ingest TARGET=dry-run` parses and discards the graph, which checks the project without Neo4j. To try one study, add `study_ids: [P-5051]` under `StudySasExtractor` in `patients.yaml`.
 
 The SAS files are `../data/datasets_extracted`. Questions to ask of the graph are in [queries/questions.md](queries/questions.md).
 

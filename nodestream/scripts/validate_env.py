@@ -8,7 +8,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 KEYS = ("NEO4J_URI", "NEO4J_USERNAME", "NEO4J_PASSWORD")
-ENV_PATH = Path(__file__).with_name(".env")
+ENV_PATH = Path(__file__).resolve().parent.parent / ".env"
 CONNECT_TIMEOUT = 5
 
 
