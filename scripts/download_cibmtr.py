@@ -43,6 +43,16 @@ AJAX = BASE + '/DataAjax/GetDataListResults'
 UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36 cibmtr-downloader'
 
 
+def request_url(url):
+    """Percent-encode a site href. The listing page leaves spaces in some dictionary links."""
+    if not url:
+        return url
+    p = urllib.parse.urlsplit(url)
+    path = urllib.parse.quote(urllib.parse.unquote(p.path), safe='/:@')
+    query = urllib.parse.quote(urllib.parse.unquote(p.query), safe='=&?/:@,+')
+    return urllib.parse.urlunsplit((p.scheme, p.netloc, path, query, p.fragment))
+
+
 # ---------------------------------------------------------------- HTTP
 class Http:
     def __init__(self, retries=3, timeout=120, delay=0.5):
@@ -51,6 +61,7 @@ class Http:
         self.retries, self.timeout, self.delay = retries, timeout, delay
 
     def _req(self, url, data=None, headers=None):
+        url = request_url(url)
         h = {'User-Agent': UA, 'Referer': PAGE}
         h.update(headers or {})
         last = None
@@ -118,7 +129,7 @@ class ItemParser(HTMLParser):
                 self.p_text = None
         elif tag == 'span': self.in_label = False
         elif tag == 'a' and self.a_href:
-            label = self.a_text.strip().lower(); url = urllib.parse.urljoin(BASE, self.a_href)
+            label = self.a_text.strip().lower(); url = request_url(urllib.parse.urljoin(BASE, self.a_href))
             if label.startswith('view'): self.cur['publication_url'] = url
             elif label == 'dataset': self.cur['dataset_zip_url'] = url
             elif label.startswith('data dictionary'): self.cur['data_dictionary_url'] = url
@@ -212,13 +223,15 @@ DICT_RX = re.compile(r'dict|data[_ -]?dic', re.I)
 
 def dictionary_from_zip(zpath, sid, dest_dir):
     """Fallback: pull the data dictionary out of the dataset zip."""
-    out = []
+    out, seen = [], set()
     with zipfile.ZipFile(zpath) as z:
         for n in z.namelist():
             base = os.path.basename(n)
             if not base or base.lower().endswith(('.sas7bdat', '.sas7bcat')) or 'terms' in base.lower(): continue
             if DICT_RX.search(base) or base.lower().endswith(('.xlsx', '.xls')):
                 dest = os.path.join(dest_dir, f'{sid}__from-dataset-zip__{safe_name(base)}')
+                if dest in seen: continue
+                seen.add(dest)
                 if not os.path.exists(dest):
                     with z.open(n) as src, open(dest, 'wb') as fh: fh.write(src.read())
                 out.append(dest)
@@ -294,7 +307,7 @@ def main(argv=None):
     for d in ([dd_dir] if a.what != 'datasets' else []) + ([ds_dir] if a.what != 'dictionaries' else []):
         os.makedirs(d, exist_ok=True)
 
-    manifest, stats = [], {'downloaded': 0, 'skipped': 0, 'failed': 0, 'broken_link': 0}
+    manifest, stats = [], {'downloaded': 0, 'skipped': 0, 'failed': 0, 'broken_link': 0, 'recovered': 0}
     now = lambda: datetime.datetime.now().isoformat(timespec='seconds')
 
     def get(sid, kind, url, dest):
@@ -328,21 +341,27 @@ def main(argv=None):
                 except zipfile.BadZipFile: log(f'  WARN {sid}: dataset is not a valid zip')
         if a.what in ('all', 'dictionaries'):
             dname = safe_name(urllib.parse.unquote(os.path.basename(urllib.parse.urlparse(c['data_dictionary_url']).path)))
+            failed_before = stats['failed']
             got = get(sid, 'dictionary', c['data_dictionary_url'], os.path.join(dd_dir, f'{sid}__{dname}')) if dname else None
             if not got:
                 # fall back to the dictionary inside the dataset zip (download the zip if needed)
+                recovered = []
                 if not zpath:
                     tmpz = os.path.join(out, '.tmp_' + sid + '.zip')
                     try: http_.download(c['dataset_zip_url'], tmpz); zpath = tmpz
                     except Exception: zpath = None
                 if zpath:
                     try:
-                        for p in dictionary_from_zip(zpath, sid, dd_dir):
+                        recovered = dictionary_from_zip(zpath, sid, dd_dir)
+                        for p in recovered:
                             manifest.append({'study_id': sid, 'kind': 'dictionary (from dataset zip)', 'url': c['dataset_zip_url'],
                                              'path': os.path.relpath(p, out), 'status': 'extracted', 'bytes': os.path.getsize(p), 'sha256': '', 'when': now()})
                             log(f'  recovered dictionary from dataset zip: {os.path.basename(p)}')
                     except zipfile.BadZipFile: pass
                     if os.path.basename(zpath).startswith('.tmp_'): os.remove(zpath)
+                if recovered:
+                    if stats['failed'] > failed_before: stats['failed'] -= 1
+                    stats['recovered'] += 1
 
     write_csv(os.path.join(out, 'manifest.csv'), manifest, ['study_id', 'kind', 'url', 'path', 'status', 'bytes', 'sha256', 'when'])
     log(f'done: {stats}  ->  {out}')
