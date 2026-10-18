@@ -6,6 +6,8 @@ Patient identifiers are unique only inside one study. Centers are the same. Do n
 
 ## Graph
 
+![Patient enrolled in a Study, treated at a Center, and linked to a Field](./queries/schema.jpg)
+
 | | |
 |---|---|
 | `(:Study {study_id})` | One publication dataset |
@@ -35,6 +37,6 @@ make ingest         # migrations, then fields, studies, and patients into Neo4j
 
 `patients.yaml` keeps up to 500 rows from each SAS file (`max_rows`). A file of 500 or fewer rows is kept whole. A larger file is a stable random 500, seeded by the study id, so a rerun keeps the same rows. Forty-three of the 160 studies have a primary file under 500 rows. Three studies also have a second SAS file (`P-5238`, `P-5375`, `P-5924`), and that file is sampled on its own. Remove `max_rows` to load every row. `make pare-down` deletes patients and centers already in Neo4j so the next `make ingest` is that sample. Field and Study nodes stay. From the repo root the same target is `make pare-down`. `make ingest TARGET=dry-run` parses and discards the graph, which checks the project without Neo4j. To try one study, add `study_ids: [P-5051]` under `StudySasExtractor` in `patients.yaml`.
 
-The SAS files are `../data/datasets_extracted`. The schema drawing is [queries/schema.jpg](queries/schema.jpg). Questions to ask of the graph are in [queries/questions.md](queries/questions.md).
+The SAS files are `../data/datasets_extracted`. Questions to ask of the graph are in [queries/questions.md](queries/questions.md).
 
 The graph holds patient-level values. Keep it local; the CIBMTR terms that ship inside each dataset zip still apply.

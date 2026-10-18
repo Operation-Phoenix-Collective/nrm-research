@@ -86,7 +86,7 @@ Every target is a one-line call to a script in [`scripts/`](scripts/README.md), 
 
 ## Graph
 
-![Patient enrolled in a Study, treated at a Center, and linked to a Field](nodestream/queries/schema.jpg)
+![Patient enrolled in a Study, treated at a Center, and linked to a Field](./nodestream/queries/schema.jpg)
 
 The Nodestream project in [`nodestream/`](nodestream/README.md) loads the public datasets into one Neo4j graph. The default ingest keeps up to 500 rows from each SAS file. Questions to ask of it are in [`nodestream/queries/questions.md`](nodestream/queries/questions.md).
 
