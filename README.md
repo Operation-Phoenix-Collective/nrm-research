@@ -51,7 +51,14 @@ The full write-up is in [`research/`](research/README.md).
 | | |
 |---|---|
 | [CONTRIBUTING.md](CONTRIBUTING.md) | Prerequisites, installation (`make install`), development workflow, data-use rules |
-| [Makefile](Makefile) | Shortcuts: `make help` lists the install, download, analysis and test targets |
+| [Makefile](Makefile) | Shortcuts: `make help` lists the install, download, analysis, test, and pare-down targets |
+
+### Graph
+
+| | |
+|---|---|
+| [Nodestream graph](nodestream/README.md) | Load the public datasets into Neo4j |
+| [Questions](nodestream/queries/questions.md) | Cypher against the loaded graph; schema at the top |
 
 ### Data
 
@@ -77,13 +84,20 @@ make test          # offline tests
 
 Every target is a one-line call to a script in [`scripts/`](scripts/README.md), so you can run the scripts without `make`. Prerequisites, installation and contribution guidelines are in [CONTRIBUTING.md](CONTRIBUTING.md).
 
+## Graph
+
+![Patient enrolled in a Study, treated at a Center, and linked to a Field](nodestream/queries/schema.jpg)
+
+The Nodestream project in [`nodestream/`](nodestream/README.md) loads the public datasets into one Neo4j graph. The default ingest keeps up to 500 rows from each SAS file. Questions to ask of it are in [`nodestream/queries/questions.md`](nodestream/queries/questions.md).
+
 ## Repository layout
 
 ```
 .
 ├── README.md                 this file
 ├── CONTRIBUTING.md           prerequisites, install, workflow, data-use rules
-├── Makefile                  thin wrapper around scripts/ (make help)
+├── Makefile                  shortcuts for scripts/ and nodestream/ (make help)
+├── nodestream/               Neo4j load of the public datasets
 ├── research/                 the write-ups (Markdown) and papers.csv
 ├── scripts/                  downloader, analysis pipeline, tests
 │   └── tests/

@@ -2,9 +2,11 @@
 
 ![Patient enrolled in a Study, treated at a Center, and linked to a Field](./schema.jpg)
 
-Patient rows currently loaded: **P-5051** (2,395), **P-5063** (1,371), and **P-5056** (234). All 160 `Study` nodes and 2,535 `Field` nodes are present. A query for any other `study_id` returns no patients until that study is ingested.
+Ingest loads all 160 `Study` nodes from `data/catalog.csv` and all 2,535 `Field` nodes from `data/field_ontology.csv`. Patient and center rows follow `max_rows` in `patients.yaml`: up to 500 rows from each SAS file. The first query is who is in Neo4j after the last ingest.
 
-Compare numbers on fields with `stack = 'recode'`. Compare categories by `value_text`. Keep `patient_id` and `center_id` inside one `study_id`. On an event, `value_num` is 1 or 0 when the dictionary label was Dead, Yes, Alive, or No. Survival times on these three studies are stored in months.
+Compare numbers on fields with `stack = 'recode'`. Compare categories by `value_text`. Keep `patient_id` and `center_id` inside one `study_id`. On an event, `value_num` is 1 or 0 when the dictionary label was Dead, Yes, Alive, or No. Times declared in days are stored in months (`unit = 'months'`). A time with no declared unit is stored as reported and `unit` is blank.
+
+Queries that name `P-5051` or `P-5063` are examples. Drop the `study_id` predicate to run the same pattern on every loaded study.
 
 ## Who is loaded, and what did each study record?
 
@@ -104,7 +106,7 @@ ORDER BY patients DESC
 LIMIT 15;
 ```
 
-## Which outcome fields are safe to pool once the other studies are loaded?
+## Which outcome fields are safe to pool across studies?
 
 These `recode` fields are the comparable ones. `crosswalk` fields stay as labels.
 

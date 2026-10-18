@@ -164,7 +164,13 @@ python3 scripts/make_findings_tables.py A                           # Markdown t
 
 - **Data folder:** the analysis scripts read and write `data/` by default. Pass a different folder as the first argument, or set `CIBMTR_DATA_DIR`.
 - **Patient counts are optional:** `analyze_nrm.py` adds them to the ranking only if `data/dataset_sizes.csv` exists.
-- **Reproducibility:** the committed outputs in `data/` were produced by exactly this pipeline, and rerunning it on the same dictionaries gives identical CSVs.
+- **Reproducibility:** the ranking, variable, and workbook files committed in `data/` were produced by exactly this pipeline, and rerunning it on the same dictionaries gives identical CSVs. The field ontology files are the exception below.
+
+The field ontology is a separate step, used by the Nodestream graph. It reads `variables_long.csv` and `catalog.csv`. It is not part of `make analysis`.
+
+```bash
+python3 scripts/build_field_ontology.py   # -> data/field_ontology.csv, data/field_dataset_mapping.csv
+```
 
 ### Reading the datasets
 
