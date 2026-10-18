@@ -1,5 +1,7 @@
 # Questions
 
+![Patient enrolled in a Study, treated at a Center, and linked to a Field](./schema.jpg)
+
 Patient rows currently loaded: **P-5051** (2,395), **P-5063** (1,371), and **P-5056** (234). All 160 `Study` nodes and 2,535 `Field` nodes are present. A query for any other `study_id` returns no patients until that study is ingested.
 
 Compare numbers on fields with `stack = 'recode'`. Compare categories by `value_text`. Keep `patient_id` and `center_id` inside one `study_id`. On an event, `value_num` is 1 or 0 when the dictionary label was Dead, Yes, Alive, or No. Survival times on these three studies are stored in months.
