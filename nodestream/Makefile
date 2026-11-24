@@ -26,7 +26,7 @@ validate:     ## Check .env values and Neo4j connectivity
 	@test -x $(PY) || { echo "Run make install first"; exit 1; }
 	@$(PY) scripts/validate_env.py
 
-pare-down: validate ## Drop patients and centers so the next ingest is the 500-row sample
+pare-down: validate ## Drop patients and centers; the next ingest follows patients.yaml
 	@set -a && . ./.env && set +a && $(PY) scripts/pare_down.py
 
 migrate: validate ## Write the schema migration if needed, then apply it to Neo4j

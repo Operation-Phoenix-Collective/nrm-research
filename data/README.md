@@ -8,8 +8,8 @@ Derived files from the analysis. **No CIBMTR patient-level data and no original 
 | [`nrm_candidate_ranking.csv`](nrm_candidate_ranking.csv) | One row per study: tier, score, patient and TRM counts, NRM availability, disease scope, and, for each concept, the matching variable names |
 | [`dataset_sizes.csv`](dataset_sizes.csv) | Patients (rows in the primary SAS file), columns, TRM events and crude TRM proportion per dataset |
 | [`catalog.csv`](catalog.csv) | All 160 studies on the CIBMTR page, with publication, dataset and dictionary URLs (snapshot of 2026-10-03) |
-| [`field_ontology.csv`](field_ontology.csv) | 2,535 canonical fields (concept and role). Built by [`scripts/build_field_ontology.py`](../scripts/build_field_ontology.py), which is not part of `make analysis` |
-| [`field_dataset_mapping.csv`](field_dataset_mapping.csv) | 6,976 study variables mapped onto those fields. Same script |
+| [`field_ontology.csv`](field_ontology.csv) | 2,535 canonical fields (concept and role). Built by [`scripts/build_field_ontology.py`](../scripts/build_field_ontology.py), which is not part of `make analysis`. The graph load uses this file as committed; see [nodestream/README.md](../nodestream/README.md) |
+| [`field_dataset_mapping.csv`](field_dataset_mapping.csv) | 6,976 study variables mapped onto those fields. Same script, same note |
 | [`variables_by_study.csv`](variables_by_study.csv) | One row per study and variable, with value levels in one cell (6,976 rows) |
 | [`variables_long.csv`](variables_long.csv) | Every parsed dictionary row: study_id, variable, description, type, value, label (22,520 rows) |
 | [`parse_summary.csv`](parse_summary.csv) | Number of variables parsed from each dictionary |

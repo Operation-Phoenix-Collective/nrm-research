@@ -12,7 +12,8 @@ Be respectful, constructive and patient. We follow the spirit of the [Contributo
 
 | Requirement | Version | Needed for | How to get it |
 |---|---|---|---|
-| Python | 3.8 or newer | Everything | macOS: `brew install python` · Debian/Ubuntu: `sudo apt install python3 python3-venv python3-pip` · Fedora: `sudo dnf install python3` · Windows: use [WSL](https://learn.microsoft.com/windows/wsl/install), or install from [python.org](https://www.python.org/downloads/) |
+| Python | 3.8 or newer | Downloaders and analysis. The Nodestream project in `nodestream/` needs 3.10 or newer (`nodestream/pyproject.toml`) | macOS: `brew install python` · Debian/Ubuntu: `sudo apt install python3 python3-venv python3-pip` · Fedora: `sudo dnf install python3` · Windows: use [WSL](https://learn.microsoft.com/windows/wsl/install), or install from [python.org](https://www.python.org/downloads/) |
+| Neo4j | Bolt on `localhost:7687` | The graph load only (`cd nodestream && make ingest`). This repo does not install or start it | [neo4j.com/download](https://neo4j.com/download/) |
 | GNU Make | any recent | The `make` shortcuts (optional; every target is a script in `scripts/`) | macOS: `xcode-select --install` · Debian/Ubuntu: `sudo apt install make` |
 | Git | any recent | Contributing changes | macOS: `xcode-select --install` · Debian/Ubuntu: `sudo apt install git` |
 | Bash | 3.2 or newer | `scripts/*.sh` | Preinstalled on macOS and Linux; use WSL on Windows |
@@ -81,7 +82,8 @@ Run `make help` for the full list of targets.
 | `make download` | All datasets and dictionaries |
 | `make papers` | The cited papers and reference documents listed in [`research/papers.csv`](research/papers.csv), saved to `data/papers/` |
 | `make research` | Everything the research write-ups rely on (`papers` + `dictionaries`) |
-| `make analysis` | Rebuild every derived file in `data/` from what you've downloaded |
+| `make analysis` | Rebuild every derived file in `data/` from what you've downloaded. Does not rebuild `field_ontology.csv` or `field_dataset_mapping.csv` |
+| `cd nodestream && make ingest` | Load the extracted SAS files into Neo4j. Full steps: [nodestream/README.md](nodestream/README.md). Agents: [AGENTS.md](AGENTS.md) |
 
 Common variables:
 
@@ -97,9 +99,11 @@ make candidates TIER="A B"                   # tiers A and B
 ## Project layout
 
 ```
-README.md            overview and table of contents
+README.md            overview and table of contents; the graph quick start points at nodestream/
+AGENTS.md            install and ingest from a fresh clone
 CONTRIBUTING.md      this file
 Makefile             thin wrapper; all logic lives in scripts/
+nodestream/          Neo4j load; its own Makefile, .venv, and .env
 requirements.txt     Python packages for the analysis scripts
 research/            the write-ups (Markdown) and papers.csv (the list of cited papers)
 scripts/             downloaders, analysis pipeline, install and test scripts

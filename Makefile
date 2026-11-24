@@ -27,7 +27,7 @@ candidates:    ## Download datasets and dictionaries for the NRM candidates (TIE
 	$(DL) --ids-from data/nrm_candidate_ranking.csv --tier $(or $(TIER),A) --extract
 download:      ## Download all datasets and dictionaries
 	$(DL) --extract
-pare-down:     ## Drop loaded patients so the next nodestream ingest is the 500-row sample
+pare-down:     ## Drop loaded patients and centers; the next ingest follows nodestream/patients.yaml
 	$(MAKE) -C nodestream pare-down
 
 papers:        ## Download the cited papers and reference documents (research/papers.csv)

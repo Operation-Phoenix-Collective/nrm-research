@@ -52,6 +52,7 @@ The full write-up is in [`research/`](research/README.md).
 |---|---|
 | [CONTRIBUTING.md](CONTRIBUTING.md) | Prerequisites, installation (`make install`), development workflow, data-use rules |
 | [Makefile](Makefile) | Shortcuts: `make help` lists the install, download, analysis, test, and pare-down targets |
+| [AGENTS.md](AGENTS.md) | Install and ingest from a fresh clone, written for an agent |
 
 ### Graph
 
@@ -84,17 +85,32 @@ make test          # offline tests
 
 Every target is a one-line call to a script in [`scripts/`](scripts/README.md), so you can run the scripts without `make`. Prerequisites, installation and contribution guidelines are in [CONTRIBUTING.md](CONTRIBUTING.md).
 
+Loading the datasets into Neo4j is a separate path. It needs the extracted SAS files (`make download`, or `make datasets` from the block above) and does not need `make analysis`. Each step is spelled out in [`nodestream/README.md`](nodestream/README.md). An agent following a fresh clone should use [`AGENTS.md`](AGENTS.md).
+
+```bash
+make install       # repo .venv; Python 3.8+ is enough here
+make download      # dictionaries and datasets; SAS files land in data/datasets_extracted/
+# Neo4j must already be listening on bolt://localhost:7687
+cd nodestream
+make setup         # nodestream/.venv (needs Python 3.10+) and .env
+# set NEO4J_PASSWORD in nodestream/.env
+make ingest        # migrations, then fields, studies, and patients
+```
+
+`data/catalog.csv`, `data/field_ontology.csv`, and `data/field_dataset_mapping.csv` are already in the repo, so this path does not need `make analysis`. Rebuild the two field files only after the dictionaries change; that script is not part of `make analysis` ([scripts guide](scripts/README.md#analysis-pipeline)).
+
 ## Graph
 
 ![Patient enrolled in a Study, treated at a Center, and linked to a Field](./nodestream/queries/schema.jpg)
 
-The Nodestream project in [`nodestream/`](nodestream/README.md) loads the public datasets into one Neo4j graph. The default ingest keeps up to 500 rows from each SAS file. Questions to ask of it are in [`nodestream/queries/questions.md`](nodestream/queries/questions.md).
+The Nodestream project in [`nodestream/`](nodestream/README.md) loads the public datasets into one Neo4j graph. `max_rows` in `nodestream/patients.yaml` is commented out, so `make ingest` loads every row of every SAS file. Uncomment `max_rows: 500` before ingest to keep a stable 500-row sample of each file. Questions to ask of the graph are in [`nodestream/queries/questions.md`](nodestream/queries/questions.md).
 
 ## Repository layout
 
 ```
 .
 ├── README.md                 this file
+├── AGENTS.md                 install and ingest from a fresh clone
 ├── CONTRIBUTING.md           prerequisites, install, workflow, data-use rules
 ├── Makefile                  shortcuts for scripts/ and nodestream/ (make help)
 ├── nodestream/               Neo4j load of the public datasets

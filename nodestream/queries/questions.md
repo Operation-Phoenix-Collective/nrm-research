@@ -2,7 +2,7 @@
 
 ![Patient enrolled in a Study, treated at a Center, and linked to a Field](./schema.jpg)
 
-Ingest loads all 160 `Study` nodes from `data/catalog.csv` and all 2,535 `Field` nodes from `data/field_ontology.csv`. Patient and center rows follow `max_rows` in `patients.yaml`: up to 500 rows from each SAS file. The first query is who is in Neo4j after the last ingest.
+Ingest loads all 160 `Study` nodes from `data/catalog.csv` and all 2,535 `Field` nodes from `data/field_ontology.csv`. Patient and center rows follow `max_rows` in `patients.yaml`. That setting is commented out, so a normal ingest loads every row of every SAS file. Uncomment `max_rows: 500` to keep 500 rows from each file. The first query is who is in Neo4j after the last ingest. How to run the load is in [../README.md](../README.md).
 
 Compare numbers on fields with `stack = 'recode'`. Compare categories by `value_text`. Keep `patient_id` and `center_id` inside one `study_id`. On an event, `value_num` is 1 or 0 when the dictionary label was Dead, Yes, Alive, or No. Times declared in days are stored in months (`unit = 'months'`). A time with no declared unit is stored as reported and `unit` is blank.
 
