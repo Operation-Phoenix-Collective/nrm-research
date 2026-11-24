@@ -1,0 +1,17 @@
+- implementation: cibmtr.steps:CsvExtractor
+  arguments:
+    path: ../data/catalog.csv
+
+- implementation: nodestream.interpreting:Interpreter
+  arguments:
+    interpretations:
+      - type: source_node
+        node_type: Study
+        key:
+          study_id: !jmespath study_id
+        key_normalization:
+          do_lowercase_strings: false
+        properties:
+          title: !jmespath title
+          first_author: !jmespath first_author
+          start_year: !jmespath start_year

@@ -43,7 +43,23 @@ The full write-up is in [`research/`](research/README.md).
 |---|---|
 | [Scripts guide](scripts/README.md) | All scripts, the analysis pipeline and tests |
 | [Download utility](scripts/README.md#download_cibmtrpy-the-download-utility) | `download_cibmtr.py`: fetch any or all CIBMTR datasets and dictionaries into a folder you choose |
+| [Paper downloader](scripts/README.md#download_paperspy-papers-and-reference-documents) | `download_papers.py`: fetch the cited papers (open-access PDFs, abstracts) and reference documents |
 | [Analysis pipeline](scripts/README.md#analysis-pipeline) | Rebuild every output in `data/` from the dictionaries |
+
+### Contributing
+
+| | |
+|---|---|
+| [CONTRIBUTING.md](CONTRIBUTING.md) | Prerequisites, installation (`make install`), development workflow, data-use rules |
+| [Makefile](Makefile) | Shortcuts: `make help` lists the install, download, analysis, test, and pare-down targets |
+| [AGENTS.md](AGENTS.md) | Install and ingest from a fresh clone, written for an agent |
+
+### Graph
+
+| | |
+|---|---|
+| [Nodestream graph](nodestream/README.md) | Load the public datasets into Neo4j |
+| [Questions](nodestream/queries/questions.md) | Cypher against the loaded graph; schema at the top |
 
 ### Data
 
@@ -57,28 +73,51 @@ The full write-up is in [`research/`](research/README.md).
 
 ```bash
 git clone <this repo> && cd <repo>
+make install       # check and install prerequisites (Python 3.8+, packages into .venv)
+make help          # list all targets
 
-# Download every CIBMTR public dataset and dictionary into data/ (git-ignored)
-python3 scripts/download_cibmtr.py --out data
-
-# Or only the 31 tier A datasets, unzipped
-python3 scripts/download_cibmtr.py --out data --ids-from data/nrm_candidate_ranking.csv --tier A --extract
-
-# Rebuild the analysis
-pip3 install -r requirements.txt
-python3 scripts/parse_dictionaries.py && python3 scripts/dataset_sizes.py data \
-  && python3 scripts/analyze_nrm.py && python3 scripts/build_workbook.py
+make research      # cited papers (open-access PDFs, abstracts) + all data dictionaries
+make candidates    # datasets for the 31 tier A candidates (TIER="A B" for more)
+make datasets      # or all 160 datasets (~120 MB zipped)
+make analysis      # rebuild everything in data/ from the downloads
+make test          # offline tests
 ```
+
+Every target is a one-line call to a script in [`scripts/`](scripts/README.md), so you can run the scripts without `make`. Prerequisites, installation and contribution guidelines are in [CONTRIBUTING.md](CONTRIBUTING.md).
+
+Loading the datasets into Neo4j is a separate path. It needs the extracted SAS files (`make download`, or `make datasets` from the block above) and does not need `make analysis`. Each step is spelled out in [`nodestream/README.md`](nodestream/README.md). An agent following a fresh clone should use [`AGENTS.md`](AGENTS.md).
+
+```bash
+make install       # repo .venv; Python 3.8+ is enough here
+make download      # dictionaries and datasets; SAS files land in data/datasets_extracted/
+# Neo4j must already be listening on bolt://localhost:7687
+cd nodestream
+make setup         # nodestream/.venv (needs Python 3.10+) and .env
+# set NEO4J_PASSWORD in nodestream/.env
+make ingest        # migrations, then fields, studies, and patients
+```
+
+`data/catalog.csv`, `data/field_ontology.csv`, and `data/field_dataset_mapping.csv` are already in the repo, so this path does not need `make analysis`. Rebuild the two field files only after the dictionaries change; that script is not part of `make analysis` ([scripts guide](scripts/README.md#analysis-pipeline)).
+
+## Graph
+
+![Patient enrolled in a Study, treated at a Center, and linked to a Field](./nodestream/queries/schema.jpg)
+
+The Nodestream project in [`nodestream/`](nodestream/README.md) loads the public datasets into one Neo4j graph. `max_rows` in `nodestream/patients.yaml` is commented out, so `make ingest` loads every row of every SAS file. Uncomment `max_rows: 500` before ingest to keep a stable 500-row sample of each file. Questions to ask of the graph are in [`nodestream/queries/questions.md`](nodestream/queries/questions.md).
 
 ## Repository layout
 
 ```
 .
 ├── README.md                 this file
-├── research/                 the write-ups (Markdown)
+├── AGENTS.md                 install and ingest from a fresh clone
+├── CONTRIBUTING.md           prerequisites, install, workflow, data-use rules
+├── Makefile                  shortcuts for scripts/ and nodestream/ (make help)
+├── nodestream/               Neo4j load of the public datasets
+├── research/                 the write-ups (Markdown) and papers.csv
 ├── scripts/                  downloader, analysis pipeline, tests
 │   └── tests/
-├── data/                     derived outputs (CSV, XLSX); downloads land here, git-ignored
+├── data/                     derived outputs (CSV, XLSX); downloads land here (git-ignored)
 ├── requirements.txt          analysis dependencies (the downloader needs none)
 └── .gitignore                keeps CIBMTR data files out of git
 ```
@@ -91,7 +130,7 @@ CIBMTR data is subject to the [CIBMTR Terms and Conditions](https://cibmtr.org/F
 
 - Shouval R, et al. *J Clin Oncol.* 2015;33:3144–3151. [doi:10.1200/JCO.2014.59.1339](https://doi.org/10.1200/JCO.2014.59.1339)
 - Mussetti A, et al. *Bone Marrow Transplant.* 2024;59:232–238. [doi:10.1038/s41409-023-02147-5](https://doi.org/10.1038/s41409-023-02147-5)
-- Follow-up EBMT data-mining study of 25,923 acute leukemia patients (data-access statement). [PMC4778768](https://pmc.ncbi.nlm.nih.gov/articles/PMC4778768)
+- Shouval R, et al. *PLoS One.* 2016;11(3):e0150637 (EBMT data-access statement). [PMC4778768](https://pmc.ncbi.nlm.nih.gov/articles/PMC4778768)
 - EBMT Data Sharing: <https://www.ebmt.org/registry/ebmt-data-sharing>
 - CIBMTR Publicly Available Datasets: <https://cibmtr.org/CIBMTR/Resources/Publicly-Available-Datasets>
 

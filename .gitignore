@@ -4,10 +4,15 @@ data/datasets/
 data/datasets_extracted/
 data/manifest.csv
 data/.tmp_*
+data/papers/
+data/catalog.csv.bak
 *.sas7bdat
 *.sas7bcat
 *.zip
 *.part
+
+# Local secrets. Examples are tracked as .env.example.
+.env
 
 # Python / OS
 __pycache__/
